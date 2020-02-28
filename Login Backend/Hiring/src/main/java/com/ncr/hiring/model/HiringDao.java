@@ -23,8 +23,8 @@ public class HiringDao {
     @Column(name= "last_name")
     private String lName;
     
-    @Column(name= "dob")
-    private String dob;
+    @Column(name= "qlid",unique=true)
+    private String qlid;
     
     @Column(name= "gender")
 	private String gender;
@@ -55,14 +55,6 @@ public class HiringDao {
 
 	public void setlName(String lName) {
 		this.lName = lName;
-	}
-
-	public String getDob() {
-		return dob;
-	}
-
-	public void setDob(String dob) {
-		this.dob = dob;
 	}
 
 	public String getGender() {
@@ -112,5 +104,5 @@ public class HiringDao {
 	public void setPassword(String password) {
 		this.password = password;
 
-}
 	}
+}

@@ -3,14 +3,15 @@ package com.ncr.hiring.ValueObject;
 public class FormVo {
 	
 	private long id;
+	private String qlid;
 	private String fName;
 	private String lName;
-	private String dob;
+
 	private String gender;
 	private String email;
 	private String password;
-	private String cpassword;
-	private String number;
+	private String cpassword;//Confirm Password
+	private String number;//Contact Number
 	
 	public long getId() {
 		return id;
@@ -30,12 +31,7 @@ public class FormVo {
 	public void setlName(String lName) {
 		this.lName = lName;
 	}
-	public String getDob() {
-		return dob;
-	}
-	public void setDob(String dob) {
-		this.dob = dob;
-	}
+	
 	public String getGender() {
 		return gender;
 	}
@@ -65,6 +61,12 @@ public class FormVo {
 	}
 	public void setNumber(String number) {
 		this.number = number;
+	}
+	public String getQlid() {
+		return qlid;
+	}
+	public void setQlid(String qlid) {
+		this.qlid = qlid;
 	}
 
 }
