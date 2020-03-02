@@ -7,30 +7,6 @@ public class FormVo {
 	private String fName;
 	private String lName;
 	private String skills;
-	public String getSkills2() {
-		return skills2;
-	}
-	public void setSkills2(String skills2) {
-		this.skills2 = skills2;
-	}
-	public String getSkills3() {
-		return skills3;
-	}
-	public void setSkills3(String skills3) {
-		this.skills3 = skills3;
-	}
-	public String getSkills4() {
-		return skills4;
-	}
-	public void setSkills4(String skills4) {
-		this.skills4 = skills4;
-	}
-	public String getSkills5() {
-		return skills5;
-	}
-	public void setSkills5(String skills5) {
-		this.skills5 = skills5;
-	}
 	private String skills2;
 	private String skills3;
 	private String skills4;
@@ -95,4 +71,28 @@ public class FormVo {
 		this.skills = skills;
 	}
 
+	public String getSkills2() {
+		return skills2;
+	}
+	public void setSkills2(String skills2) {
+		this.skills2 = skills2;
+	}
+	public String getSkills3() {
+		return skills3;
+	}
+	public void setSkills3(String skills3) {
+		this.skills3 = skills3;
+	}
+	public String getSkills4() {
+		return skills4;
+	}
+	public void setSkills4(String skills4) {
+		this.skills4 = skills4;
+	}
+	public String getSkills5() {
+		return skills5;
+	}
+	public void setSkills5(String skills5) {
+		this.skills5 = skills5;
+	}
 }
