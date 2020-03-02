@@ -78,14 +78,16 @@ public HiringDao addFormData(FormVo formVo)
 	hiringDao.setID(formVo.getId());
 	hiringDao.setfName(formVo.getfName());
 	hiringDao.setlName(formVo.getlName());
-	hiringDao.setDob(formVo.getDob());
-	hiringDao.setGender(formVo.getGender());
+    hiringDao.setSkills(formVo.getSkills());
+    hiringDao.setSkills2(formVo.getSkills2());
+    hiringDao.setSkills3(formVo.getSkills3());
+    hiringDao.setSkills4(formVo.getSkills4());
+    hiringDao.setSkills5(formVo.getSkills5());    
 	hiringDao.setEmail(formVo.getEmail());
 	hiringDao.setPassword(formVo.getPassword());
 	hiringDao.setCpassword(formVo.getCpassword());
 	hiringDao.setNumber(formVo.getNumber());
-	
-	
+		
     return hiringCrudRepository.save(hiringDao);
     
 }

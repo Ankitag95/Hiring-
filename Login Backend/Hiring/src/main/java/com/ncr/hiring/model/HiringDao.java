@@ -23,11 +23,23 @@ public class HiringDao {
     @Column(name= "last_name")
     private String lName;
     
-    @Column(name= "dob")
-    private String dob;
+    @Column(name= "qlid",unique=true)
+    private String qlid;
+      
+    @Column(name= "skills")
+    private String skills;
     
-    @Column(name= "gender")
-	private String gender;
+    @Column(name= "skills2")
+    private String skills2;
+    
+    @Column(name ="skills3")
+    private String skills3;
+    
+    @Column(name= "skills4")
+    private String skills4;
+    
+    @Column(name ="skills5")
+    private String skills5; 
     
     @Column(name= "email")
 	private String email;
@@ -60,20 +72,53 @@ public class HiringDao {
 		this.lName = lName;
 	}
 
-	public String getDob() {
-		return dob;
+
+	public String getQlid() {
+		return qlid;
 	}
 
-	public void setDob(String dob) {
-		this.dob = dob;
+	public void setQlid(String qlid) {
+		this.qlid = qlid;
 	}
 
-	public String getGender() {
-		return gender;
+	public String getSkills() {
+		return skills;
 	}
 
-	public void setGender(String gender) {
-		this.gender = gender;
+	public void setSkills(String skills) {
+		this.skills = skills;
+	}
+
+	public String getSkills2() {
+		return skills2;
+	}
+
+	public void setSkills2(String skills2) {
+		this.skills2 = skills2;
+	}
+
+	public String getSkills3() {
+		return skills3;
+	}
+
+	public void setSkills3(String skills3) {
+		this.skills3 = skills3;
+	}
+
+	public String getSkills4() {
+		return skills4;
+	}
+
+	public void setSkills4(String skills4) {
+		this.skills4 = skills4;
+	}
+
+	public String getSkills5() {
+		return skills5;
+	}
+
+	public void setSkills5(String skills5) {
+		this.skills5 = skills5;
 	}
 
 	public String getCpassword() {
@@ -125,3 +170,4 @@ public class HiringDao {
 		this.role = "interviwer";
 	}
 	}
+}
