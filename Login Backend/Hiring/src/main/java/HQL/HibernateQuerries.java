@@ -86,7 +86,8 @@ public LoginBean validateUser(LoginBean loginBean) {
 	BigInteger b=(BigInteger)em.createNativeQuery("select count(*) from user_list where Email=:x  and Password=:y").setParameter("x", loginBean.getEmail()).setParameter("y", loginBean.getPassword()).getSingleResult();
 	HiringDao hiringDao = new HiringDao();
 	
-	if(b.intValue()==1) {
+	if(b.intValue()==1) 
+	{
 		hiringDao = (HiringDao) em.createQuery("From HiringDao where email=:x").setParameter("x", loginBean.getEmail()).getSingleResult();
 		loginBean.setiD(hiringDao.getID());
 		loginBean.setfName(hiringDao.getfName());
@@ -94,7 +95,8 @@ public LoginBean validateUser(LoginBean loginBean) {
 		loginBean.setEmail(hiringDao.getEmail());
 		loginBean.setiD(hiringDao.getID());
 		loginBean.setValid(true);
-		return loginBean;}
+		return loginBean;
+	}
 	else
 	{
 		loginBean.setValid(false);

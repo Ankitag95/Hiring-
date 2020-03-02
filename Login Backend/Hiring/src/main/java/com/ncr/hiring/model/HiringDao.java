@@ -53,6 +53,9 @@ public class HiringDao {
     @Column(name= "number")
 	private String number;
     
+    @Column(name="role")
+    private String role;
+    
 	public String getfName() {
 		return fName;
 	}
@@ -157,5 +160,14 @@ public class HiringDao {
 	public void setPassword(String password) {
 		this.password = password;
 
+}
+
+	public String getRole() {
+		return "interviwer";
+	}
+
+	public void setRole() {
+		this.role = "interviwer";
+	}
 	}
 }
