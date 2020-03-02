@@ -59,13 +59,30 @@
       
       <label for="skills5">Skill 5</label>
       <select name="skills5" [(ngModel)]="user.skills5" id="skills5"   #skills5="ngModel">
-        <option value="Na"> NA</option>
+        
         <option value="Sql">Sql</option>
         <option value="Web Technology">Web Technology</option>
         <option value="Cloud">Cloud</option>
         <option value="Analytics">Analytics</option>
         <option value="Java">Java</option>
         <option value="Python">Python</option>
+      </select>
+
+      <label for="Month">Month</label>
+      <select name="Month" [(ngModel)]="user.Month" id="Month"   #Month="ngModel">
+        
+        <option value="January">January</option>
+        <option value="February">February</option>
+        <option value="March">March</option>
+        <option value="April">April</option>
+        <option value="May">May</option>
+        <option value="June">June</option>
+        <option value="July">July</option>
+        <option value="August">August</option>
+        <option value="September">September</option>
+        <option value="October">October</option>
+        <option value="November">November</option>
+        <option value="December">December</option>
       </select>
 
 
