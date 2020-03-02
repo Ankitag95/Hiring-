@@ -6,7 +6,35 @@ public class FormVo {
 	private String qlid;
 	private String fName;
 	private String lName;
-	private String Skill_set;
+	private String skills;
+	public String getSkills2() {
+		return skills2;
+	}
+	public void setSkills2(String skills2) {
+		this.skills2 = skills2;
+	}
+	public String getSkills3() {
+		return skills3;
+	}
+	public void setSkills3(String skills3) {
+		this.skills3 = skills3;
+	}
+	public String getSkills4() {
+		return skills4;
+	}
+	public void setSkills4(String skills4) {
+		this.skills4 = skills4;
+	}
+	public String getSkills5() {
+		return skills5;
+	}
+	public void setSkills5(String skills5) {
+		this.skills5 = skills5;
+	}
+	private String skills2;
+	private String skills3;
+	private String skills4;
+	private String skills5;
 	private String email;
 	private String password;
 	private String cpassword;//Confirm Password
@@ -29,13 +57,6 @@ public class FormVo {
 	}
 	public void setlName(String lName) {
 		this.lName = lName;
-	}
-	
-	public String getSkill_set() {
-		return Skill_set;
-	}
-	public void setSkill_set(String Skill_set) {
-		this.Skill_set = Skill_set;
 	}
 	public String getEmail() {
 		return email;
@@ -66,6 +87,12 @@ public class FormVo {
 	}
 	public void setQlid(String qlid) {
 		this.qlid = qlid;
+	}
+	public String getSkills() {
+		return skills;
+	}
+	public void setSkills(String skills) {
+		this.skills = skills;
 	}
 
 }

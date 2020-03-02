@@ -81,7 +81,7 @@ public class HiringController {
 	public HiringDao addFormData(@RequestBody FormVo formVo)
 	{
 		return hiringService.addFormData(formVo);
-		//return "sucess";
+		//return "success";
 	}
 	
 //	@ApiOperation(value="",notes="")
