@@ -26,8 +26,8 @@ public class HiringDao {
     @Column(name= "qlid",unique=true)
     private String qlid;
     
-    @Column(name= "gender")
-	private String gender;
+    @Column(name= "Skill_set")
+	private String Skill_set;
     
     @Column(name= "email")
 	private String email;
@@ -57,12 +57,12 @@ public class HiringDao {
 		this.lName = lName;
 	}
 
-	public String getGender() {
-		return gender;
+	public String getSkill_set() {
+		return Skill_set;
 	}
 
-	public void setGender(String gender) {
-		this.gender = gender;
+	public void setSkill_set(String Skill_set) {
+		this.Skill_set = Skill_set;
 	}
 
 	public String getCpassword() {
