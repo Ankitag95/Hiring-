@@ -169,5 +169,5 @@ public class HiringDao {
 	public void setRole() {
 		this.role = "interviwer";
 	}
-	}
+	
 }
