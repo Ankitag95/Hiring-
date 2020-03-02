@@ -11,6 +11,7 @@ import { FooterComponent } from './footer/footer.component';
 // import { EpsNominationComponent } from './eps-nomination/eps-nomination.component';
 // import { FirstComponent } from './first/first.component';
 import { RegisterComponent } from './register/register.component';
+import{HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { RegisterComponent } from './register/register.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

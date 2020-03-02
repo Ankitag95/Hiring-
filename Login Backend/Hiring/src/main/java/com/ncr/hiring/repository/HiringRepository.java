@@ -73,11 +73,12 @@ return hibernateQuerries.validateUser(loginBean);
 
 public HiringDao addFormData(FormVo formVo)
 {	
-	//HibernateQuerries hibernateQuerries = new HibernateQuerries(em);
+	HibernateQuerries hibernateQuerries = new HibernateQuerries(em);
 	HiringDao hiringDao= new HiringDao();
 	hiringDao.setID(formVo.getId());
 	hiringDao.setfName(formVo.getfName());
 	hiringDao.setlName(formVo.getlName());
+	hiringDao.setQlid(formVo.getQlid());
     hiringDao.setSkills(formVo.getSkills());
     hiringDao.setSkills2(formVo.getSkills2());
     hiringDao.setSkills3(formVo.getSkills3());
