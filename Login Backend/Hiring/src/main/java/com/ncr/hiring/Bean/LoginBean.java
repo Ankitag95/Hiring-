@@ -11,6 +11,8 @@ public class LoginBean {
 	private String fName;
 	private String lName;
 	private String password;
+	private String role;
+	
 	public String getPassword() {
 		return password;
 	}
@@ -62,4 +64,10 @@ public class LoginBean {
 //	public void setLast_name(String last_name) {
 //		this.last_name = last_name;
 //	}
+	public String getRole() {
+		return "interviwer";
+	}
+	public void setRole() {
+		this.role = "interviwer";
+	}
 }
