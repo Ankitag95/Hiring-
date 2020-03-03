@@ -1,12 +1,21 @@
 package com.ncr.hiring.ValueObject;
 
-public class FormVo {
+public class RegisterInterviewer {
 	
 	private long id;
 	private String qlid;
 	private String fName;
 	private String lName;
 	private String skills;
+	private String skills2;
+	private String skills3;
+	private String skills4;
+	private String skills5;
+	private String email;
+	private String password;
+	private String cpassword;//Confirm Password
+	private String number;//Contact Number
+	
 	public String getSkills2() {
 		return skills2;
 	}
@@ -31,15 +40,7 @@ public class FormVo {
 	public void setSkills5(String skills5) {
 		this.skills5 = skills5;
 	}
-	private String skills2;
-	private String skills3;
-	private String skills4;
-	private String skills5;
-	private String email;
-	private String password;
-	private String cpassword;//Confirm Password
-	private String number;//Contact Number
-	
+
 	public long getId() {
 		return id;
 	}

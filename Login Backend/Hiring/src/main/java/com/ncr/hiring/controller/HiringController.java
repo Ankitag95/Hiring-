@@ -3,23 +3,19 @@ package com.ncr.hiring.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
-import com.ncr.hiring.Bean.LoginBean;
-import com.ncr.hiring.ValueObject.FormVo;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import org.springframework.web.bind.annotation.PostMapping;
+
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+import com.ncr.hiring.Bean.InterviewerLoginBean;
+import com.ncr.hiring.ValueObject.*;
 import com.ncr.hiring.model.HiringDao;
 import com.ncr.hiring.service.HiringService;
-
 import io.swagger.annotations.ApiOperation;
-import com.ncr.hiring.Bean.LoginBean;
+
 @RestController
 @ControllerAdvice
 @CrossOrigin(origins= "http://localhost:4200")
@@ -29,17 +25,16 @@ public class HiringController {
 	HiringService hiringService;
 	
 	
-	@ApiOperation(value="Get Dat",notes="Get data from database")
-	@GetMapping(value="/api/login/test")
-	public Iterable<HiringDao> getUser(){
+	
+	
+	@ApiOperation(value="Get Data",notes="Get data from database")
+	@GetMapping(value="/api/get/all")
+	public Iterable<HiringDao> getAllInterviewer(){
 		System.out.println("Success");
-	return hiringService.getUser();
+	return hiringService.getAllInterviewer();
 	}
-	
-	
-	@ApiOperation(value="login",notes="loginoperation")
-	@PostMapping(value="/api/login")
-	
+		
+		
 	//BOOLEAN TRY
 //	public boolean validateUser(@RequestParam String email,@RequestParam String password) {
 //		return hiringService.validateUser(email,password);
@@ -51,8 +46,10 @@ public class HiringController {
 //	return hiringService.validateUser(email,password);
 //	
 //}
-	public LoginBean validateUser(@RequestBody LoginBean loginBean) {
-	return hiringService.validateUser(loginBean);
+	@ApiOperation(value="login",notes="loginoperation")
+	@PostMapping(value="/api/login")
+	public InterviewerLoginBean validateUser(@RequestBody InterviewerLoginBean interviewerLoginBean) {
+	return hiringService.validateUser(interviewerLoginBean);
 	
 }
 	//------------------------------------------------------------------------------------------------
@@ -69,18 +66,18 @@ public class HiringController {
 //		return hiringService.dashBoard(email);
 //	}
 	
-	@ApiOperation(value="Inserting Form Data",notes="")
-	@PostMapping(value="/api/insert/createuser")
 	
 //	public boolean addFormData(@RequestBody FormVo formVo)
 //	{
 //		return hiringService.addFormData(formVo);
 //		//return "success";
 //	}
+	@ApiOperation(value="Inserting Form Data",notes="")
+	@PostMapping(value="/api/insert/createuser")
 	
-	public HiringDao addFormData(@RequestBody FormVo formVo)
+	public HiringDao registerInterviewer(@RequestBody RegisterInterviewer registerInterviewer)
 	{
-		return hiringService.addFormData(formVo);
+		return hiringService.registerInterviewer(registerInterviewer);
 		//return "success";
 	}
 	
