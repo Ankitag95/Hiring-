@@ -29,23 +29,7 @@ public Iterable<HiringDao> getAllInterviewer() {
 	return hiringCrudRepository.findAll();
 	}
 
-//BOOLEAN TRY
-//public boolean validateUser(String email,String password) {
-//	HibernateQuerries hibernateQuerries = new HibernateQuerries(em);
-//	return hibernateQuerries.validateUser(email, password);
-//}
-//----------------------------------------------------------------------------------
-//VOID TRY
-//public void validateUser(String email,String password) {
-//	HibernateQuerries hibernateQuerries = new HibernateQuerries(em);
-//	 hibernateQuerries.validateUser(email, password);
-//}
-//---------------------------------------------------------------------------------
-//LOGINBEAN TRY
-//public LoginBean validateUser(String email,String password) {
-//HibernateQuerries hibernateQuerries = new HibernateQuerries(em);
-//return hibernateQuerries.validateUser(email, password);
-//}
+
 public InterviewerLoginBean validateUser(InterviewerLoginBean interviewerLoginBean) 
 {
 	HibernateQuerries hibernateQuerries = new HibernateQuerries(em);
@@ -53,27 +37,7 @@ public InterviewerLoginBean validateUser(InterviewerLoginBean interviewerLoginBe
 	return hibernateQuerries.validateUser(interviewerLoginBean);
 	
 }
-//public HiringDao dashBoard(String email) {
-//	HibernateQuerries hibernateQuerries = new HibernateQuerries(em);
-//	
-//	return hibernateQuerries.dashBoard(email);
-//}
 
-//public boolean addFormData(FormVo formVo)
-//{	
-//	HibernateQuerries hibernateQuerries = new HibernateQuerries(em);
-//	HiringDao hiringDao= new HiringDao();
-//	hiringDao.setID(formVo.getId());
-//	hiringDao.setfName(formVo.getfName());
-//	hiringDao.setlName(formVo.getlName());
-//	hiringDao.setDob(formVo.getDob());
-//	hiringDao.setGender(formVo.getGender());
-//	hiringDao.setEmail(formVo.getEmail());
-//	hiringDao.setPassword(formVo.getPassword());
-//	hiringDao.setNumber(formVo.getNumber());
-//    return hibernateQuerries.addFormData(formVo);
-//	
-//}
 
 public HiringDao registerInterviewer(RegisterInterviewer registerInterviewer)
 {	
@@ -98,6 +62,8 @@ public HiringDao registerInterviewer(RegisterInterviewer registerInterviewer)
 	hiringDao.setPassword(registerInterviewer.getPassword());
 	hiringDao.setCpassword(registerInterviewer.getCpassword());
 	hiringDao.setNumber(registerInterviewer.getNumber());
+	hiringDao.setMonth(registerInterviewer.getMonth());
+	hiringDao.setYear(registerInterviewer.getYear());
 		
     return hiringCrudRepository.save(hiringDao);
     
