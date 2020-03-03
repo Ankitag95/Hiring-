@@ -51,6 +51,7 @@ public InterviewerLoginBean validateUser(InterviewerLoginBean interviewerLoginBe
 		hiringDao.setID(registerInterviewer.getId());
 		hiringDao.setfName(registerInterviewer.getfName());
 		hiringDao.setlName(registerInterviewer.getlName());
+		hiringDao.setQlid(registerInterviewer.getQlid());
 		
 		if(registerInterviewer.getSkills() != null)
 			hiringDao.setSkills(registerInterviewer.getSkills());
@@ -74,11 +75,9 @@ public InterviewerLoginBean validateUser(InterviewerLoginBean interviewerLoginBe
     
 	}
 
-
 	public void deleteInterviewerById(Long id) {
 		// TODO Auto-generated method stub
 		 hiringCrudRepository.deleteById(id);
-		
 	}
 	
 }
