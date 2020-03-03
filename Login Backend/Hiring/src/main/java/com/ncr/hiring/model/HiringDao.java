@@ -65,7 +65,7 @@ public class HiringDao {
 	public String getYear() {
 		return year;
 	}
-
+	
 	public void setYear(String year) {
 		this.year = year;
 	}

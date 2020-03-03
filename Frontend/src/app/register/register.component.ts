@@ -19,10 +19,10 @@ export class RegisterComponent implements OnInit {
     lName: null,
     qlid: null,
     skills:null,
-    skills2:null,
-    skills3:null,
-    skills4:null,
-    skills5:null,
+    // skills2:null,
+    // skills3:null,
+    // skills4:null,
+    // skills5:null,
     month:null,
     year:null,
     number: null,
@@ -31,6 +31,7 @@ export class RegisterComponent implements OnInit {
     cpassword:null,
   }
   taskList = [];
+  monthVale = "January";
 
   ngOnInit() {
   }
