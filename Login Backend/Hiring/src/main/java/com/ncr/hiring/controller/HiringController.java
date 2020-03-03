@@ -42,6 +42,14 @@ public class HiringController {
 		return hiringService.getInterviewerById(id);
 	}
 	
+	@ApiOperation(value="Get Data",notes="Get data from database")
+	@GetMapping(value="/api/delete/ById")
+	public void deleteInterviewerById(Long id)
+	{
+		System.out.println("Deleted");
+		 hiringService.deleteInterviewerById(id);
+	}
+	
 	
 	@ApiOperation(value="login",notes="loginoperation")
 	@PostMapping(value="/api/login")

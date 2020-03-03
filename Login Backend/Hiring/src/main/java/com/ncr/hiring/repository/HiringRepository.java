@@ -45,7 +45,7 @@ public class HiringRepository {
 
 	public HiringDao registerInterviewer(RegisterInterviewer registerInterviewer)
 	{	
-		HibernateQuerries hibernateQuerries = new HibernateQuerries(em);
+		//HibernateQuerries hibernateQuerries = new HibernateQuerries(em);
 		HiringDao hiringDao= new HiringDao();
 		hiringDao.setID(registerInterviewer.getId());
 		hiringDao.setfName(registerInterviewer.getfName());
@@ -70,4 +70,12 @@ public class HiringRepository {
 		return hiringCrudRepository.save(hiringDao);
     
 	}
+
+
+	public void deleteInterviewerById(Long id) {
+		// TODO Auto-generated method stub
+		 hiringCrudRepository.deleteById(id);
+		
+	}
+	
 }
