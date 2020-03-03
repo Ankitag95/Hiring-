@@ -1,6 +1,6 @@
 package com.ncr.hiring.ValueObject;
 
-public class FormVo {
+public class RegisterInterviewer {
 	
 	private long id;
 	private String qlid;
@@ -15,7 +15,14 @@ public class FormVo {
 	private String password;
 	private String cpassword;//Confirm Password
 	private String number;//Contact Number
+	private String month;
 	
+	public String getMonth() {
+		return month;
+	}
+	public void setMonth(String month) {
+		this.month = month;
+	}
 	public long getId() {
 		return id;
 	}

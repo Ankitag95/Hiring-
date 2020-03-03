@@ -56,6 +56,17 @@ public class HiringDao {
     @Column(name="role")
     private String role;
     
+    @Column(name="month")
+    private String month;
+    
+	public String getMonth() {
+		return month;
+	}
+
+	public void setMonth(String month) {
+		this.month = month;
+	}
+
 	public String getfName() {
 		return fName;
 	}
@@ -87,7 +98,7 @@ public class HiringDao {
 
 	public void setSkills(String skills) {
 		this.skills = skills;
-	}
+	}	
 
 	public String getSkills2() {
 		return skills2;
@@ -157,14 +168,15 @@ public class HiringDao {
 		return password;
 	}
 
-	public void setPassword(String password) {
+	public void setPassword(String password) 
+	{
 		this.password = password;
-    }
-
-	public String getRole() {
-		return "interviwer";
 	}
 
+	public String getRole() 
+	{
+		return "interviwer";
+	}
 	public void setRole() {
 		this.role = "interviwer";
 	}

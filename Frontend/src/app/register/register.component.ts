@@ -23,6 +23,7 @@ export class RegisterComponent implements OnInit {
     skills3:null,
     skills4:null,
     skills5:null,
+    month:null,
     number: null,
     email:null,
     password:null,
