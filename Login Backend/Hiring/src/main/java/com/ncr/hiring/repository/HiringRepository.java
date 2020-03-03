@@ -46,7 +46,7 @@ public InterviewerLoginBean validateUser(InterviewerLoginBean interviewerLoginBe
 
 	public HiringDao registerInterviewer(RegisterInterviewer registerInterviewer)
 	{	
-		HibernateQuerries hibernateQuerries = new HibernateQuerries(em);
+		//HibernateQuerries hibernateQuerries = new HibernateQuerries(em);
 		HiringDao hiringDao= new HiringDao();
 		hiringDao.setID(registerInterviewer.getId());
 		hiringDao.setfName(registerInterviewer.getfName());
@@ -73,4 +73,12 @@ public InterviewerLoginBean validateUser(InterviewerLoginBean interviewerLoginBe
 		return hiringCrudRepository.save(hiringDao);
     
 	}
+
+
+	public void deleteInterviewerById(Long id) {
+		// TODO Auto-generated method stub
+		 hiringCrudRepository.deleteById(id);
+		
+	}
+	
 }

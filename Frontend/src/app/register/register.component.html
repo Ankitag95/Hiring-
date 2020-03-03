@@ -86,6 +86,22 @@
       </select>
       <div class="error-msg" *ngIf="month.touched && !month.valid">*Field is Required</div>
 
+      <label for="year">Month Available For Interviews</label>
+      <select name="year" [(ngModel)]="user.year" id="year"   #year="ngModel" required>
+        
+        <option value="2020">January</option>
+        <option value="2021">February</option>
+        <option value="2022">March</option>
+        <option value="2023">April</option>
+        <option value="2024">May</option>
+        <option value="2025">June</option>
+        <option value="2027">July</option>
+        <option value="2028">August</option>
+        <option value="2029">September</option>
+        <option value="2030">October</option>
+      </select>
+      <div class="error-msg" *ngIf="year.touched && !year.valid">*Field is Required</div>
+
 
       <label for="phonenumber">Contact Number</label>
       <input type="number" pattern="[0-9]{10}" name="number" [(ngModel)]="user.number" maxlength="10"  #number="ngModel" placeholder="Enter Phone Number" required>
