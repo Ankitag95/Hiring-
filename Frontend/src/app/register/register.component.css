@@ -20,6 +20,19 @@
     padding: 12px 20px;
     margin:8px 0;
     border: 1px solid #ccc;
+    background-color: white;
+  }
+
+  .year{
+    
+      display: block;
+      width: 91.5%;
+      padding: 12px 20px;
+      margin:8px 0;
+      border: 1px solid #ccc;
+      background-color: white;
+      cursor: pointer;
+    
   }
   
   label{
