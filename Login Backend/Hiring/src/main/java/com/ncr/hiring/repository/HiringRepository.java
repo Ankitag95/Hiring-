@@ -88,6 +88,7 @@ public HiringDao addFormData(FormVo formVo)
 	hiringDao.setPassword(formVo.getPassword());
 	hiringDao.setCpassword(formVo.getCpassword());
 	hiringDao.setNumber(formVo.getNumber());
+	hiringDao.setMonth(formVo.getMonth());
 		
     return hiringCrudRepository.save(hiringDao);
     
