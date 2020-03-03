@@ -31,8 +31,8 @@ public class HiringRepository {
 
 
 	public HiringDao getInterviewerById(Long id) {
-		return hiringCrudRepository.findById(id).get();
-	}
+		return hiringCrudRepository.findById(id).orElse(null);
+			}
 
 	public InterviewerLoginBean validateUser(InterviewerLoginBean interviewerLoginBean) 
 	{
