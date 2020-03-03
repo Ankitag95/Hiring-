@@ -1,6 +1,6 @@
 package com.ncr.hiring.ValueObject;
 
-public class FormVo {
+public class RegisterInterviewer {
 	
 	private long id;
 	private String qlid;
