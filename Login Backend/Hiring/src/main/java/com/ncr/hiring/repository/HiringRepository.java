@@ -18,15 +18,15 @@ import HQL.HibernateQuerries;
 @Transactional
 public class HiringRepository {
 	
-@Autowired
-HiringCrudRepository hiringCrudRepository;
+	@Autowired
+	HiringCrudRepository hiringCrudRepository;
 
-@PersistenceContext
-EntityManager em;
+	@PersistenceContext
+	EntityManager em;
 
 
-public Iterable<HiringDao> getAllInterviewer() {
-	return hiringCrudRepository.findAll();
+	public Iterable<HiringDao> getAllInterviewer() {
+		return hiringCrudRepository.findAll();
 	}
 
 
@@ -38,25 +38,30 @@ public InterviewerLoginBean validateUser(InterviewerLoginBean interviewerLoginBe
 	
 }
 
+	public HiringDao getInterviewerById(Long id) {
+		return hiringCrudRepository.findById(id).orElse(null);
+			}
 
-public HiringDao registerInterviewer(RegisterInterviewer registerInterviewer)
-{	
-	HibernateQuerries hibernateQuerries = new HibernateQuerries(em);
-	HiringDao hiringDao= new HiringDao();
-	hiringDao.setID(registerInterviewer.getId());
-	hiringDao.setfName(registerInterviewer.getfName());
-	hiringDao.setlName(registerInterviewer.getlName());
-	
-	if(registerInterviewer.getSkills() != null)
-		hiringDao.setSkills(registerInterviewer.getSkills());
-	if(registerInterviewer.getSkills2() != null)
-		hiringDao.setSkills2(registerInterviewer.getSkills2());
-	if(registerInterviewer.getSkills3() != null)
-		hiringDao.setSkills3(registerInterviewer.getSkills3());
-	if(registerInterviewer.getSkills4() != null)
-		hiringDao.setSkills4(registerInterviewer.getSkills4());
-	if(registerInterviewer.getSkills5() != null)	
-		hiringDao.setSkills5(registerInterviewer.getSkills5());    
+
+
+	public HiringDao registerInterviewer(RegisterInterviewer registerInterviewer)
+	{	
+		HibernateQuerries hibernateQuerries = new HibernateQuerries(em);
+		HiringDao hiringDao= new HiringDao();
+		hiringDao.setID(registerInterviewer.getId());
+		hiringDao.setfName(registerInterviewer.getfName());
+		hiringDao.setlName(registerInterviewer.getlName());
+		
+		if(registerInterviewer.getSkills() != null)
+			hiringDao.setSkills(registerInterviewer.getSkills());
+		if(registerInterviewer.getSkills2() != null)
+			hiringDao.setSkills2(registerInterviewer.getSkills2());
+		if(registerInterviewer.getSkills3() != null)
+			hiringDao.setSkills3(registerInterviewer.getSkills3());
+		if(registerInterviewer.getSkills4() != null)
+			hiringDao.setSkills4(registerInterviewer.getSkills4());
+		if(registerInterviewer.getSkills5() != null)	
+			hiringDao.setSkills5(registerInterviewer.getSkills5());    
 	
 	hiringDao.setEmail(registerInterviewer.getEmail());
 	hiringDao.setPassword(registerInterviewer.getPassword());
@@ -65,41 +70,7 @@ public HiringDao registerInterviewer(RegisterInterviewer registerInterviewer)
 	hiringDao.setMonth(registerInterviewer.getMonth());
 	hiringDao.setYear(registerInterviewer.getYear());
 		
-    return hiringCrudRepository.save(hiringDao);
+		return hiringCrudRepository.save(hiringDao);
     
-}
-
-//public Iterable<HiringDao> getData() {
-//	HibernateQuerries hibernateQuerries=new HibernateQuerries(em);
-//	return hibernateQuerries.getData();
-//	}
-
-
-//   public void setData( String task) 
-//   {
-//	  ToDoList obj=new ToDoList();
-//	  obj.setTask(task);
-//	  toDoCrudRepository.save(obj);
-//	
-//   }
-   
-//   public void deleteData(long id) {
-//		 toDoCrudRepository.deleteById(id);
-//		
-//	}
-   
-   
-//   public void updateData(String task) {
-//		// TODO Auto-generated method stub
-//		ToDoList obj1=new ToDoList();
-//		obj1.setTask(task);
-//		toDoCrudRepository.save(obj1);
-//	}
-   
-//   public void deleteAllData() {
-//		// TODO Auto-generated method stub
-//		toDoCrudRepository.deleteAll();
-//	}
-
-
+	}
 }

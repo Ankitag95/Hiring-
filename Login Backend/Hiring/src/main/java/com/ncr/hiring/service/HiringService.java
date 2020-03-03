@@ -15,11 +15,14 @@ public class HiringService {
 	HiringRepository hiringRepository;
 	
 	
-	public Iterable<HiringDao> getAllInterviewer(){
-		return hiringRepository.getAllInterviewer();
-		
+	public Iterable<HiringDao> getAllInterviewer()
+	{
+		return hiringRepository.getAllInterviewer();	
 	}
-	
+	public HiringDao getInterviewerById(Long id)
+	{
+		return hiringRepository.getInterviewerById(id);
+	}	
 //	public boolean validateUser(String email,String password) {
 //		return hiringRepository.validateUser(email,password);
 //		
