@@ -31,6 +31,7 @@ export class RegisterComponent implements OnInit {
     cpassword:null,
   }
   taskList = [];
+  monthVale = "January";
 
   ngOnInit() {
   }

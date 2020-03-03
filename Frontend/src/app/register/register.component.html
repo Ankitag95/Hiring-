@@ -15,7 +15,8 @@
       <div class="error-msg" *ngIf="qlid.touched && !qlid.valid">*Field is Required</div>
   
       <label for="skills">Skill 1</label>
-      <select name="skills" [(ngModel)]="user.skills" id="skills"  #skills="ngModel">
+      <select name="skills" [value]="" required>
+        <option value="" selected>--Select the skill--</option>
         <option value="Sql">Sql</option>
         <option value="Web Technology">Web Technology</option>
         <option value="Cloud">Cloud</option>
@@ -25,7 +26,8 @@
       </select>
 
       <label for="skills2">Skill 2</label>
-      <select name="skills2" [(ngModel)]="user.skills2" id="skills2"   #skills2="ngModel">
+      <select name="skills2" [value]="" required>
+        <option value="" selected>--Select the skill--</option>
         <option value="Sql">Sql</option>
         <option value="Web Technology">Web Technology</option>
         <option value="Cloud">Cloud</option>
@@ -36,19 +38,21 @@
      
 
       <label for="skills3">Skill 3</label>
-      <select name="skills3" [(ngModel)]="user.skills3" id="skills3"   #skills3="ngModel">
+      
+       <select name="skills3" [value]="" required>
+        <option value="" selected>--Select the skill--</option>
         <option value="Sql">Sql</option>
         <option value="Web Technology">Web Technology</option>
         <option value="Cloud">Cloud</option>
         <option value="Analytics">Analytics</option>
         <option value="Java">Java</option>
         <option value="Python">Python</option>
-      </select>
+      </select> 
       
 
       <label for="skills4">Skill 4 </label>
-      <select name="skills4" [(ngModel)]="user.skills4" id="skills4"   #skills4="ngModel">
-        
+      <select name="skills4" [value]="" required>
+        <option value="" selected>--Select the skill--</option>
         <option value="Sql">Sql</option>
         <option value="Web Technology">Web Technology</option>
         <option value="Cloud">Cloud</option>
@@ -58,8 +62,8 @@
       </select>
       
       <label for="skills5">Skill 5</label>
-      <select name="skills5" [(ngModel)]="user.skills5" id="skills5"   #skills5="ngModel">
-        
+      <select name="skills5" [value]="" required>
+        <option value="" selected>--Select the skill--</option>
         <option value="Sql">Sql</option>
         <option value="Web Technology">Web Technology</option>
         <option value="Cloud">Cloud</option>
@@ -69,7 +73,7 @@
       </select>
 
       <label for="month">Month Available For Interviews</label>
-      <select name="month" [(ngModel)]="user.month" id="month"   #month="ngModel" required>
+      <select name="month" [(ngModel)]="monthVale" id="month"   #month="ngModel" required>
         
         <option value="January">January</option>
         <option value="February">February</option>
@@ -86,21 +90,10 @@
       </select>
       <div class="error-msg" *ngIf="month.touched && !month.valid">*Field is Required</div>
 
-      <label for="year">Month Available For Interviews</label>
-      <select name="year" [(ngModel)]="user.year" id="year"   #year="ngModel" required>
-        
-        <option value="2020">January</option>
-        <option value="2021">February</option>
-        <option value="2022">March</option>
-        <option value="2023">April</option>
-        <option value="2024">May</option>
-        <option value="2025">June</option>
-        <option value="2027">July</option>
-        <option value="2028">August</option>
-        <option value="2029">September</option>
-        <option value="2030">October</option>
-      </select>
-      <div class="error-msg" *ngIf="year.touched && !year.valid">*Field is Required</div>
+      <label for="year">Year</label>
+      <input class="year" type="text" disabled value="2020">
+      
+      
 
 
       <label for="phonenumber">Contact Number</label>
