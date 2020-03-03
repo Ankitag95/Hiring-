@@ -68,8 +68,8 @@
         <option value="Python">Python</option>
       </select>
 
-      <label for="Month">Month</label>
-      <select name="Month" [(ngModel)]="user.Month" id="Month"   #Month="ngModel">
+      <label for="month">Month Available For Interviews</label>
+      <select name="month" [(ngModel)]="user.month" id="month"   #month="ngModel" required>
         
         <option value="January">January</option>
         <option value="February">February</option>
@@ -84,6 +84,7 @@
         <option value="November">November</option>
         <option value="December">December</option>
       </select>
+      <div class="error-msg" *ngIf="month.touched && !month.valid">*Field is Required</div>
 
 
       <label for="phonenumber">Contact Number</label>
