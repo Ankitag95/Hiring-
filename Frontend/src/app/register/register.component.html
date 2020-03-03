@@ -15,7 +15,7 @@
       <div class="error-msg" *ngIf="qlid.touched && !qlid.valid">*Field is Required</div>
   
       <label for="skills">Skill 1</label>
-      <select name="skills" [(ngModel)]="user.skills" id="skills"  #skills="ngModel">
+      <select name="skills" [(ngModel)]="user.skills" id="skills"  #skills="ngModel" required> 
         <option value="Sql">Sql</option>
         <option value="Web Technology">Web Technology</option>
         <option value="Cloud">Cloud</option>
@@ -37,6 +37,7 @@
 
       <label for="skills3">Skill 3</label>
       <select name="skills3" [(ngModel)]="user.skills3" id="skills3"   #skills3="ngModel">
+        
         <option value="Sql">Sql</option>
         <option value="Web Technology">Web Technology</option>
         <option value="Cloud">Cloud</option>
