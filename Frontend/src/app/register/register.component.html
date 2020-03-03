@@ -14,55 +14,8 @@
       <input type="text" name="qlid" [(ngModel)]="user.qlid" #qlid="ngModel" placeholder="Enter Quick Look ID" required>
       <div class="error-msg" *ngIf="qlid.touched && !qlid.valid">*Field is Required</div>
   
-      <label for="skills">Skill 1</label>
-      <select name="skills" [value]="" required>
-        <option value="" selected>--Select the skill--</option>
-        <option value="Sql">Sql</option>
-        <option value="Web Technology">Web Technology</option>
-        <option value="Cloud">Cloud</option>
-        <option value="Analytics">Analytics</option>
-        <option value="Java">Java</option>
-        <option value="Python">Python</option>
-      </select>
-
-      <label for="skills2">Skill 2</label>
-      <select name="skills2" [value]="" required>
-        <option value="" selected>--Select the skill--</option>
-        <option value="Sql">Sql</option>
-        <option value="Web Technology">Web Technology</option>
-        <option value="Cloud">Cloud</option>
-        <option value="Analytics">Analytics</option>
-        <option value="Java">Java</option>
-        <option value="Python">Python</option>
-      </select>
-     
-
-      <label for="skills3">Skill 3</label>
-      
-       <select name="skills3" [value]="" required>
-        <option value="" selected>--Select the skill--</option>
-        <option value="Sql">Sql</option>
-        <option value="Web Technology">Web Technology</option>
-        <option value="Cloud">Cloud</option>
-        <option value="Analytics">Analytics</option>
-        <option value="Java">Java</option>
-        <option value="Python">Python</option>
-      </select> 
-      
-
-      <label for="skills4">Skill 4 </label>
-      <select name="skills4" [value]="" required>
-        <option value="" selected>--Select the skill--</option>
-        <option value="Sql">Sql</option>
-        <option value="Web Technology">Web Technology</option>
-        <option value="Cloud">Cloud</option>
-        <option value="Analytics">Analytics</option>
-        <option value="Java">Java</option>
-        <option value="Python">Python</option>
-      </select>
-      
-      <label for="skills5">Skill 5</label>
-      <select name="skills5" [value]="" required>
+      <label for="skills">Skills</label>
+      <select name="skills" [value]="" required multiple>
         <option value="" selected>--Select the skill--</option>
         <option value="Sql">Sql</option>
         <option value="Web Technology">Web Technology</option>
