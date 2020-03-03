@@ -77,7 +77,7 @@ public InterviewerLoginBean validateUser(InterviewerLoginBean interviewerLoginBe
 
 public HiringDao registerInterviewer(RegisterInterviewer registerInterviewer)
 {	
-	//HibernateQuerries hibernateQuerries = new HibernateQuerries(em);
+	HibernateQuerries hibernateQuerries = new HibernateQuerries(em);
 	HiringDao hiringDao= new HiringDao();
 	hiringDao.setID(registerInterviewer.getId());
 	hiringDao.setfName(registerInterviewer.getfName());

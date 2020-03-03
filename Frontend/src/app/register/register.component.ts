@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { NgForm } from "@angular/forms";
+import { HiringService } from '../hiring.service';
 //import { LoginService } from "../login.service";
 
 @Component({
@@ -11,23 +12,39 @@ import { NgForm } from "@angular/forms";
 export class RegisterComponent implements OnInit {
   submitted=false;
 
-  constructor(public _router:Router) { }
+  constructor(public _router:Router,private taskService: HiringService) { }
   
   user={
     fName:null ,
     lName: null,
     qlid: null,
-    gender: null,
-    email: null,
-    password: null,
-    cpassword: null,
-    number: null
+    skills:null,
+    skills2:null,
+    skills3:null,
+    skills4:null,
+    skills5:null,
+    number: null,
+    email:null,
+    password:null,
+    cpassword:null,
   }
-
+  taskList = [];
 
   ngOnInit() {
   }
-
+  onSubmit() {
+    
+    
+    this.taskService.interviewer_register(this.user).
+      subscribe((res) => {
+        if (res) {
+          this.taskList = res;
+          
+        } else {
+          console.log('fail');
+        }
+      });
+  }
   //onSubmit(registerForm:NgForm){
     
     // if(registerForm.invalid) {
@@ -53,4 +70,5 @@ export class RegisterComponent implements OnInit {
     // });
   //}
 
+  
 }
