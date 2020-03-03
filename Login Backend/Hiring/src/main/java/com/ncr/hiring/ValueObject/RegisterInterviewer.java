@@ -16,6 +16,14 @@ public class RegisterInterviewer {
 	private String cpassword;//Confirm Password
 	private String number;//Contact Number
 	private String month;
+	private String year;
+	
+	public String getYear() {
+		return year;
+	}
+	public void setYear(String year) {
+		this.year = year;
+	}
 	
 	public String getMonth() {
 		return month;

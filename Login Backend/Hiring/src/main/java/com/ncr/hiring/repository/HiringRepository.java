@@ -30,17 +30,18 @@ public class HiringRepository {
 	}
 
 
+public InterviewerLoginBean validateUser(InterviewerLoginBean interviewerLoginBean) 
+{
+	HibernateQuerries hibernateQuerries = new HibernateQuerries(em);
+	System.out.println(hibernateQuerries.validateUser(interviewerLoginBean));
+	return hibernateQuerries.validateUser(interviewerLoginBean);
+	
+}
+
 	public HiringDao getInterviewerById(Long id) {
 		return hiringCrudRepository.findById(id).orElse(null);
 			}
 
-	public InterviewerLoginBean validateUser(InterviewerLoginBean interviewerLoginBean) 
-	{
-		HibernateQuerries hibernateQuerries = new HibernateQuerries(em);
-		System.out.println(hibernateQuerries.validateUser(interviewerLoginBean));
-		return hibernateQuerries.validateUser(interviewerLoginBean);
-	
-	}
 
 
 	public HiringDao registerInterviewer(RegisterInterviewer registerInterviewer)
@@ -62,10 +63,12 @@ public class HiringRepository {
 		if(registerInterviewer.getSkills5() != null)	
 			hiringDao.setSkills5(registerInterviewer.getSkills5());    
 	
-		hiringDao.setEmail(registerInterviewer.getEmail());
-		hiringDao.setPassword(registerInterviewer.getPassword());
-		hiringDao.setCpassword(registerInterviewer.getCpassword());
-		hiringDao.setNumber(registerInterviewer.getNumber());
+	hiringDao.setEmail(registerInterviewer.getEmail());
+	hiringDao.setPassword(registerInterviewer.getPassword());
+	hiringDao.setCpassword(registerInterviewer.getCpassword());
+	hiringDao.setNumber(registerInterviewer.getNumber());
+	hiringDao.setMonth(registerInterviewer.getMonth());
+	hiringDao.setYear(registerInterviewer.getYear());
 		
 		return hiringCrudRepository.save(hiringDao);
     
