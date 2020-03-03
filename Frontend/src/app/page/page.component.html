@@ -1,0 +1,49 @@
+<div class="container">
+    <form method="POST" action="" (ngSubmit)="onsubmit()">
+        <h1>Interviewers Available</h1>
+        
+        <div >
+        
+          <table>
+              
+      
+          <tr>
+          <th>Fisrt Name</th>
+          <th>Last Age</th>
+          <th>Qlid</th>
+          <th>Skill 1</th>
+          <th>Skill 2</th>
+          <th>Skill 3</th>
+          <th>Skill 4</th>
+          <th>Skill 5</th>
+
+          <th>Email</th>
+          <th>Contact Number</th>
+          <th>Month Available</th>
+          <th>Year</th>
+          </tr>
+         
+          <tr *ngFor="let obj of dataarray3;let i = index">
+          <td><input type="text" name="fName{{i}}"  #fName="ngModel" [(ngModel)]="obj.fName"></td>
+          
+          <td><input type="text" name="lname{{i}}"  #lname="ngModel" [(ngModel)]="obj.lname"></td>
+          <td><input type="text" name="qlid{{i}}"  #qlid="ngModel" [(ngModel)]="obj.qlid"></td>
+          <td><input type="text" name="skills{{i}}"  #skills="ngModel" [(ngModel)]="obj.skills"></td>
+          
+          <td><input type="text" name="skills2{{i}}"  #skills2="ngModel" [(ngModel)]="obj.skills2"></td>
+          
+          <td><input type="text" name="skills3{{i}}"  #skills3="ngModel" [(ngModel)]="obj.skills3"></td>
+          <td><input type="text" name="skills4{{i}}"  #skills4="ngModel" [(ngModel)]="obj.skills4"></td>
+          <td><input type="text" name="skills5{{i}}"  #skills5="ngModel" [(ngModel)]="obj.skills5"></td>
+
+          <td><input type="text" name="email{{i}}"  #email="ngModel" [(ngModel)]="obj.email"></td>
+          <td><input type="text" name="number{{i}}"  #number="ngModel" [(ngModel)]="obj.number"></td>
+          <td><input type="text" name="month{{i}}"  #month="ngModel" [(ngModel)]="obj.month"></td>
+          <td><input type="text" name="year{{i}}"  #year="ngModel" [(ngModel)]="obj.year"></td>
+
+          </tr>
+          
+        
+      
+        </table>
+      </div><br><br><br><hr><br>

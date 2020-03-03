@@ -1,0 +1,79 @@
+.container
+{
+  margin-top: 90px;
+  margin-left:  auto;
+  margin-right: auto;
+  width: 90%;
+  text-align: left;
+}
+h1{
+  text-align: center;
+}
+
+textarea:focus{
+  border-color: #54b948;
+}
+
+textarea:hover{
+  border-color: #54b948;
+}
+
+textarea{
+  border-color: #54b948;
+  border-style: solid;
+}
+
+input[type="text"]:focus{
+    border-color: #54b948;
+    
+  }
+
+  input[type="text"]{
+    border-color: #54b948;
+    border-style: solid;
+    width: 150%;
+  }
+
+  input[type="text"]:hover{
+    color: #54b948;
+    box-shadow: #54b948;
+    border-color: #54b948;
+  }
+
+  .button-submit{
+    display: block;
+    padding: 1rem 3rem;
+    margin:10px auto;
+  }
+  .button-submit:hover{
+    color: #54b948;
+    box-shadow: #54b948;
+    border-color: #54b948;
+  }
+
+  .button-skip{
+    display: block;
+    padding: 1rem 3rem;
+    margin:10px auto;
+  }
+  .button-skip:hover{
+    color: #54b948;
+    box-shadow: #54b948;
+    border-color: #54b948;
+  }
+
+  .button-add{
+    color: black;
+    box-shadow:white;
+    border-color: black;
+    background-color:white;
+    
+  }
+
+  .button-rem{
+    color: black;
+    box-shadow:white;
+    border-color: black;
+    background-color:white;
+    
+  }
