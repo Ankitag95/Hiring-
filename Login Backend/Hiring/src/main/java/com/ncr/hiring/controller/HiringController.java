@@ -26,7 +26,6 @@ public class HiringController {
 	
 	
 	
-	
 	@ApiOperation(value="Get Data",notes="Get data from database")
 	@GetMapping(value="/api/get/all")
 	public Iterable<HiringDao> getAllInterviewer(){
