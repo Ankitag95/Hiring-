@@ -3,8 +3,8 @@ package com.ncr.hiring.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ncr.hiring.Bean.InterviewerLoginBean;
-import com.ncr.hiring.ValueObject.*;
+import com.ncr.hiring.Bean.LoginBean;
+import com.ncr.hiring.ValueObject.FormVo;
 import com.ncr.hiring.model.HiringDao;
 import com.ncr.hiring.repository.HiringRepository;
 
@@ -14,31 +14,84 @@ public class HiringService {
 	@Autowired
 	HiringRepository hiringRepository;
 	
-	
-	public Iterable<HiringDao> getAllInterviewer()
-	{
-		return hiringRepository.getAllInterviewer();	
+	public Iterable<HiringDao> getUser(){
+		return hiringRepository.getUser();
+		
 	}
-	public HiringDao getInterviewerById(Long id)
-	{
-		return hiringRepository.getInterviewerById(id);
-	}	
-
-	public InterviewerLoginBean validateUser(InterviewerLoginBean interviewerLoginBean) {
-		 return hiringRepository.validateUser(interviewerLoginBean);
+	
+//	public boolean validateUser(String email,String password) {
+//		return hiringRepository.validateUser(email,password);
+//		
+//	}
+	//--------------------------------------------------------------------------------------------
+//	public void validateUser(String email,String password) {
+//		 hiringRepository.validateUser(email,password);
+//		
+//	}
+	//------------------------------------------------------------------------------------------
+//	public LoginBean validateUser(String email,String password) {
+//		 return hiringRepository.validateUser(email,password);
+//		
+//	}
+	public LoginBean validateUser(LoginBean loginBean) {
+		 return hiringRepository.validateUser(loginBean);
 		
 	}
 	
 	
+//	public HiringDao dashBoard(String email) {
+//		return hiringRepository.dashBoard(email);
+//	}
 	
-	public HiringDao registerInterviewer(RegisterInterviewer registerInterviewer)
+//	public boolean addFormData(FormVo formVo)
+//	{
+//		return hiringRepository.addFormData(formVo);
+//		//return "sucess";
+//	}
+	
+	public HiringDao addFormData(FormVo formVo)
 	{
-		return hiringRepository.registerInterviewer(registerInterviewer);
+		return hiringRepository.addFormData(formVo);
 		//return "sucess";
 	}
-	public void deleteInterviewerById(Long id) {
-		hiringRepository.deleteInterviewerById(id);
-	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+//	public Iterable<ToDoList> getData() {
+//		return toDoRepository.getData();
+//	}
 
+//	public void setData(String task) {
+//		toDoRepository.setData(task);
+//		
+//	}
+//	
+//	public void deleteData(long id) {
+//		 toDoRepository.deleteData(id);
+//		
+//	}
+//	
+//	public void updateData( String task) {
+//		toDoRepository.updateData(task);
+//		
+//	}
+//	
+//	
+//
+//	public void deleteAllData() {
+//		 toDoRepository.deleteAllData();
+//	}
+//	
+//	
+	
+	
 
 }

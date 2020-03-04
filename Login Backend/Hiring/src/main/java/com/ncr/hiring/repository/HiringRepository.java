@@ -7,9 +7,8 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.ncr.hiring.Bean.InterviewerLoginBean;
-
-import com.ncr.hiring.ValueObject.*;
+import com.ncr.hiring.Bean.LoginBean;
+import com.ncr.hiring.ValueObject.FormVo;
 import com.ncr.hiring.model.HiringDao;
 
 import HQL.HibernateQuerries;
@@ -18,66 +17,113 @@ import HQL.HibernateQuerries;
 @Transactional
 public class HiringRepository {
 	
-	@Autowired
-	HiringCrudRepository hiringCrudRepository;
+@Autowired
+HiringCrudRepository hiringCrudRepository;
 
-	@PersistenceContext
-	EntityManager em;
+@PersistenceContext
+EntityManager em;
 
 
-	public Iterable<HiringDao> getAllInterviewer() {
-		return hiringCrudRepository.findAll();
+public Iterable<HiringDao> getUser() {
+	return hiringCrudRepository.findAll();
 	}
 
+//BOOLEAN TRY
+//public boolean validateUser(String email,String password) {
+//	HibernateQuerries hibernateQuerries = new HibernateQuerries(em);
+//	return hibernateQuerries.validateUser(email, password);
+//}
+//----------------------------------------------------------------------------------
+//VOID TRY
+//public void validateUser(String email,String password) {
+//	HibernateQuerries hibernateQuerries = new HibernateQuerries(em);
+//	 hibernateQuerries.validateUser(email, password);
+//}
+//---------------------------------------------------------------------------------
+//LOGINBEAN TRY
+//public LoginBean validateUser(String email,String password) {
+//HibernateQuerries hibernateQuerries = new HibernateQuerries(em);
+//return hibernateQuerries.validateUser(email, password);
+//}
+public LoginBean validateUser(LoginBean loginBean) {
+HibernateQuerries hibernateQuerries = new HibernateQuerries(em);
+return hibernateQuerries.validateUser(loginBean);
+}
+//public HiringDao dashBoard(String email) {
+//	HibernateQuerries hibernateQuerries = new HibernateQuerries(em);
+//	
+//	return hibernateQuerries.dashBoard(email);
+//}
 
-public InterviewerLoginBean validateUser(InterviewerLoginBean interviewerLoginBean) 
-{
+//public boolean addFormData(FormVo formVo)
+//{	
+//	HibernateQuerries hibernateQuerries = new HibernateQuerries(em);
+//	HiringDao hiringDao= new HiringDao();
+//	hiringDao.setID(formVo.getId());
+//	hiringDao.setfName(formVo.getfName());
+//	hiringDao.setlName(formVo.getlName());
+//	hiringDao.setDob(formVo.getDob());
+//	hiringDao.setGender(formVo.getGender());
+//	hiringDao.setEmail(formVo.getEmail());
+//	hiringDao.setPassword(formVo.getPassword());
+//	hiringDao.setNumber(formVo.getNumber());
+//    return hibernateQuerries.addFormData(formVo);
+//	
+//}
+
+public HiringDao addFormData(FormVo formVo)
+{	
 	HibernateQuerries hibernateQuerries = new HibernateQuerries(em);
-	System.out.println(hibernateQuerries.validateUser(interviewerLoginBean));
-	return hibernateQuerries.validateUser(interviewerLoginBean);
-	
+	HiringDao hiringDao= new HiringDao();
+	hiringDao.setID(formVo.getId());
+	hiringDao.setfName(formVo.getfName());
+	hiringDao.setlName(formVo.getlName());
+	hiringDao.setQlid(formVo.getQlid());
+    hiringDao.setSkills(formVo.getSkills());
+    hiringDao.setSkills2(formVo.getSkills2());
+    hiringDao.setSkills3(formVo.getSkills3());
+    hiringDao.setSkills4(formVo.getSkills4());
+    hiringDao.setSkills5(formVo.getSkills5());    
+	hiringDao.setEmail(formVo.getEmail());
+	hiringDao.setPassword(formVo.getPassword());
+	hiringDao.setCpassword(formVo.getCpassword());
+	hiringDao.setNumber(formVo.getNumber());
+		
+    return hiringCrudRepository.save(hiringDao);
+    
 }
 
-	public HiringDao getInterviewerById(Long id) {
-		return hiringCrudRepository.findById(id).orElse(null);
-			}
+//public Iterable<HiringDao> getData() {
+//	HibernateQuerries hibernateQuerries=new HibernateQuerries(em);
+//	return hibernateQuerries.getData();
+//	}
 
 
+//   public void setData( String task) 
+//   {
+//	  ToDoList obj=new ToDoList();
+//	  obj.setTask(task);
+//	  toDoCrudRepository.save(obj);
+//	
+//   }
+   
+//   public void deleteData(long id) {
+//		 toDoCrudRepository.deleteById(id);
+//		
+//	}
+   
+   
+//   public void updateData(String task) {
+//		// TODO Auto-generated method stub
+//		ToDoList obj1=new ToDoList();
+//		obj1.setTask(task);
+//		toDoCrudRepository.save(obj1);
+//	}
+   
+//   public void deleteAllData() {
+//		// TODO Auto-generated method stub
+//		toDoCrudRepository.deleteAll();
+//	}
 
-	public HiringDao registerInterviewer(RegisterInterviewer registerInterviewer)
-	{	
-		//HibernateQuerries hibernateQuerries = new HibernateQuerries(em);
-		HiringDao hiringDao= new HiringDao();
-		hiringDao.setID(registerInterviewer.getId());
-		hiringDao.setfName(registerInterviewer.getfName());
-		hiringDao.setlName(registerInterviewer.getlName());
-		hiringDao.setQlid(registerInterviewer.getQlid());
-		
-		if(registerInterviewer.getSkills() != null)
-			hiringDao.setSkills(registerInterviewer.getSkills());
-		if(registerInterviewer.getSkills2() != null)
-			hiringDao.setSkills2(registerInterviewer.getSkills2());
-		if(registerInterviewer.getSkills3() != null)
-			hiringDao.setSkills3(registerInterviewer.getSkills3());
-		if(registerInterviewer.getSkills4() != null)
-			hiringDao.setSkills4(registerInterviewer.getSkills4());
-		if(registerInterviewer.getSkills5() != null)	
-			hiringDao.setSkills5(registerInterviewer.getSkills5());    
-	
-	hiringDao.setEmail(registerInterviewer.getEmail());
-	hiringDao.setPassword(registerInterviewer.getPassword());
-	hiringDao.setCpassword(registerInterviewer.getCpassword());
-	hiringDao.setNumber(registerInterviewer.getNumber());
-	hiringDao.setMonth(registerInterviewer.getMonth());
-	hiringDao.setYear(registerInterviewer.getYear());
-		
-		return hiringCrudRepository.save(hiringDao);
-    
-	}
 
-	public void deleteInterviewerById(Long id) {
-		// TODO Auto-generated method stub
-		 hiringCrudRepository.deleteById(id);
-	}
-	
 }
