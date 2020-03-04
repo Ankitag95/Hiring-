@@ -10,10 +10,10 @@ import javax.persistence.Query;
 
 import org.springframework.transaction.annotation.Transactional;
 
-import com.ncr.hiring.Bean.LoginBean;
+import com.ncr.hiring.Bean.InterviewerLoginBean;
 //import com.ncr.hiring.Bean.loginBean;
 import com.ncr.hiring.Helper.CommonUtils;
-import com.ncr.hiring.ValueObject.FormVo;
+import com.ncr.hiring.ValueObject.RegisterInterviewer;
 import com.ncr.hiring.model.HiringDao;
 
 class bean{
@@ -80,7 +80,7 @@ public HiringDao dashBoard(String email) {
 //		return loginBean;
 //	}	
 //}
-public LoginBean validateUser(LoginBean loginBean) {
+public InterviewerLoginBean validateUser(InterviewerLoginBean loginBean) {
 	//LoginBean loginBean=new LoginBean();
 	System.out.println("Hibernate func");
 	BigInteger b=(BigInteger)em.createNativeQuery("select count(*) from user_list where Email=:x  and Password=:y").setParameter("x", loginBean.getEmail()).setParameter("y", loginBean.getPassword()).getSingleResult();

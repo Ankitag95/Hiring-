@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ncr.hiring.Bean.LoginBean;
-import com.ncr.hiring.ValueObject.FormVo;
+import com.ncr.hiring.Bean.InterviewerLoginBean;
+import com.ncr.hiring.ValueObject.RegisterInterviewer;
 import com.ncr.hiring.model.HiringDao;
 import com.ncr.hiring.service.HiringService;
 
 import io.swagger.annotations.ApiOperation;
-import com.ncr.hiring.Bean.LoginBean;
+
 @RestController
 @ControllerAdvice
 @CrossOrigin(origins= "http://localhost:4200")
@@ -51,7 +51,7 @@ public class HiringController {
 //	return hiringService.validateUser(email,password);
 //	
 //}
-	public LoginBean validateUser(@RequestBody LoginBean loginBean) {
+	public InterviewerLoginBean validateUser(@RequestBody InterviewerLoginBean loginBean) {
 	return hiringService.validateUser(loginBean);
 	
 }
@@ -78,9 +78,9 @@ public class HiringController {
 //		//return "success";
 //	}
 	
-	public HiringDao addFormData(@RequestBody FormVo formVo)
+	public HiringDao registerInterviewer(@RequestBody RegisterInterviewer registerInterviewer)
 	{
-		return hiringService.addFormData(formVo);
+		return hiringService.registerInterviewer(registerInterviewer);
 		//return "success";
 	}
 	
