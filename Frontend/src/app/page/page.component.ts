@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { HiringService } from '../hiring.service';
+import { User } from '../user';
 
 @Component({
   selector: 'app-page',
@@ -7,31 +8,44 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./page.component.css']
 })
 export class PageComponent implements OnInit {
-  user={
-    fName:null ,
-    lName: null,
-    qlid: null,
-    skills:null,
-    skills2:null,
-    skills3:null,
-    skills4:null,
-    skills5:null,
-    month:null,
-    number: null,
-    email:null,
-    password:null,
-    cpassword:null,
-  }
+  
+  userId=1;
+  // user:any={};
+  users:User[];
+
   
   dataarray3=[];
   
 
-  constructor() {
+  constructor(private taskService:HiringService) {
     
    }
 
   ngOnInit() {
-    this.dataarray3.push(this.user);
+    // this.user.push(this.users);
+    this.taskService.getdata().
+      subscribe(res =>{this.users =res
+      console.log(this.users)});
+  }
+
+  remform3(index : any){
+
+   
+    this.users.pop();
   }
 
 }
+
+
+
+
+
+
+
+
+
+
+  
+
+
+

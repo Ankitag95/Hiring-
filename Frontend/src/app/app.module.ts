@@ -13,6 +13,8 @@ import { FooterComponent } from './footer/footer.component';
 import { RegisterComponent } from './register/register.component';
 import{HttpClientModule} from '@angular/common/http';
 import { PageComponent } from './page/page.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -24,14 +26,15 @@ import { PageComponent } from './page/page.component';
     // EpfFormComponent,
     // EpsNominationComponent,
     // FirstComponent,
-    RegisterComponent,
-    PageComponent
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgMultiSelectDropDownModule,
+    CommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

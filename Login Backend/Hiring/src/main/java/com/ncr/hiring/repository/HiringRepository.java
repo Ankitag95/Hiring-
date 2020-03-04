@@ -7,9 +7,8 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.ncr.hiring.Bean.InterviewerLoginBean;
-
-import com.ncr.hiring.ValueObject.*;
+import com.ncr.hiring.Bean.LoginBean;
+import com.ncr.hiring.ValueObject.FormVo;
 import com.ncr.hiring.model.HiringDao;
 
 import HQL.HibernateQuerries;
@@ -18,15 +17,15 @@ import HQL.HibernateQuerries;
 @Transactional
 public class HiringRepository {
 	
-	@Autowired
-	HiringCrudRepository hiringCrudRepository;
+@Autowired
+HiringCrudRepository hiringCrudRepository;
 
-	@PersistenceContext
-	EntityManager em;
+@PersistenceContext
+EntityManager em;
 
 
-	public Iterable<HiringDao> getAllInterviewer() {
-		return hiringCrudRepository.findAll();
+public Iterable<HiringDao> getUser() {
+	return hiringCrudRepository.findAll();
 	}
 
 

@@ -10,10 +10,10 @@ import javax.persistence.Query;
 
 import org.springframework.transaction.annotation.Transactional;
 
-import com.ncr.hiring.Bean.InterviewerLoginBean;
+import com.ncr.hiring.Bean.LoginBean;
 //import com.ncr.hiring.Bean.loginBean;
 import com.ncr.hiring.Helper.CommonUtils;
-import com.ncr.hiring.ValueObject.*;
+import com.ncr.hiring.ValueObject.FormVo;
 import com.ncr.hiring.model.HiringDao;
 
 class bean{
@@ -80,30 +80,27 @@ public HiringDao dashBoard(String email) {
 //		return loginBean;
 //	}	
 //}
-public InterviewerLoginBean validateUser(InterviewerLoginBean interviewerLoginBean) {
+public LoginBean validateUser(LoginBean loginBean) {
 	//LoginBean loginBean=new LoginBean();
 	System.out.println("Hibernate func");
-	BigInteger b=(BigInteger)em.createNativeQuery("select count(*) from user_list where Email=:x  and Password=:y").setParameter("x", interviewerLoginBean.getEmail()).setParameter("y", interviewerLoginBean.getPassword()).getSingleResult();
+	BigInteger b=(BigInteger)em.createNativeQuery("select count(*) from user_list where Email=:x  and Password=:y").setParameter("x", loginBean.getEmail()).setParameter("y", loginBean.getPassword()).getSingleResult();
 	HiringDao hiringDao = new HiringDao();
 	
 	if(b.intValue()==1) 
 	{
-		hiringDao = (HiringDao) em.createQuery("From HiringDao where email=:x").setParameter("x", interviewerLoginBean.getEmail()).getSingleResult();
-		interviewerLoginBean.setiD(hiringDao.getID());
-		interviewerLoginBean.setfName(hiringDao.getfName());
-		interviewerLoginBean.setlName(hiringDao.getlName());
-		interviewerLoginBean.setEmail(hiringDao.getEmail());
-		interviewerLoginBean.setRole(hiringDao.getRole());
-		interviewerLoginBean.setiD(hiringDao.getID());
-		
-		interviewerLoginBean.setValid(true);
-		
-		return interviewerLoginBean;
+		hiringDao = (HiringDao) em.createQuery("From HiringDao where email=:x").setParameter("x", loginBean.getEmail()).getSingleResult();
+		loginBean.setiD(hiringDao.getID());
+		loginBean.setfName(hiringDao.getfName());
+		loginBean.setlName(hiringDao.getlName());
+		loginBean.setEmail(hiringDao.getEmail());
+		loginBean.setiD(hiringDao.getID());
+		loginBean.setValid(true);
+		return loginBean;
 	}
 	else
 	{
-		interviewerLoginBean.setValid(false);
-		return interviewerLoginBean;
+		loginBean.setValid(false);
+		return loginBean;
 	}	
 }
 //----------------------------------------------------------------------------------------------------------------------

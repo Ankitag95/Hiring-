@@ -10,17 +10,13 @@ h1{
   text-align: center;
 }
 
-textarea:focus{
-  border-color: #54b948;
-}
 
-textarea:hover{
-  border-color: #54b948;
-}
 
-textarea{
-  border-color: #54b948;
-  border-style: solid;
+td{
+    border-color: #54b948;
+    border-style: solid;
+    width: 13%;
+
 }
 
 input[type="text"]:focus{
@@ -29,7 +25,7 @@ input[type="text"]:focus{
   }
 
   input[type="text"]{
-    border-color: #54b948;
+    
     border-style: solid;
     width: 150%;
   }
@@ -40,40 +36,15 @@ input[type="text"]:focus{
     border-color: #54b948;
   }
 
-  .button-submit{
-    display: block;
-    padding: 1rem 3rem;
-    margin:10px auto;
-  }
-  .button-submit:hover{
-    color: #54b948;
-    box-shadow: #54b948;
-    border-color: #54b948;
-  }
-
-  .button-skip{
-    display: block;
-    padding: 1rem 3rem;
-    margin:10px auto;
-  }
-  .button-skip:hover{
-    color: #54b948;
-    box-shadow: #54b948;
-    border-color: #54b948;
-  }
-
-  .button-add{
-    color: black;
-    box-shadow:white;
-    border-color: black;
-    background-color:white;
-    
-  }
-
   .button-rem{
     color: black;
     box-shadow:white;
     border-color: black;
     background-color:white;
+    width: 100%;
     
   }
+
+  
+
+  
