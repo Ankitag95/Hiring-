@@ -23,6 +23,13 @@ public class HiringDao {
     @Column(name= "last_name")
     private String lName;
     
+    
+    @Column(name="month")
+    private String month;
+    
+    @Column(name="year")
+    private String year;
+    
     @Column(name= "qlid",unique=true)
     private String qlid;
       
@@ -55,13 +62,7 @@ public class HiringDao {
     
     @Column(name="role")
     private String role;
-    
-    @Column(name="month")
-    private String month;
-    
-    @Column(name="year")
-    private String year;
-    
+
 	public String getYear() {
 		return year;
 	}

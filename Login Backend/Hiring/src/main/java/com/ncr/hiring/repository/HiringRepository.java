@@ -30,19 +30,18 @@ public class HiringRepository {
 	}
 
 
-public InterviewerLoginBean validateUser(InterviewerLoginBean interviewerLoginBean) 
-{
-	HibernateQuerries hibernateQuerries = new HibernateQuerries(em);
-	System.out.println(hibernateQuerries.validateUser(interviewerLoginBean));
-	return hibernateQuerries.validateUser(interviewerLoginBean);
+	public InterviewerLoginBean validateUser(InterviewerLoginBean interviewerLoginBean) 
+	{
+		HibernateQuerries hibernateQuerries = new HibernateQuerries(em);
+		System.out.println(hibernateQuerries.validateUser(interviewerLoginBean));
+		return hibernateQuerries.validateUser(interviewerLoginBean);
 	
-}
+	}
 
-	public HiringDao getInterviewerById(Long id) {
+	public HiringDao getInterviewerById(Long id)
+	{
 		return hiringCrudRepository.findById(id).orElse(null);
-			}
-
-
+	}
 
 	public HiringDao registerInterviewer(RegisterInterviewer registerInterviewer)
 	{	
