@@ -14,63 +14,39 @@
       <input type="text" name="qlid" [(ngModel)]="user.qlid" #qlid="ngModel" placeholder="Enter Quick Look ID" required>
       <div class="error-msg" *ngIf="qlid.touched && !qlid.valid">*Field is Required</div>
   
-      <label for="skills">Skill 1</label>
-      <select name="skills" [(ngModel)]="user.skills" id="skills"  #skills="ngModel" required> 
-        <option value="Sql">Sql</option>
-        <option value="Web Technology">Web Technology</option>
-        <option value="Cloud">Cloud</option>
-        <option value="Analytics">Analytics</option>
-        <option value="Java">Java</option>
-        <option value="Python">Python</option>
-      </select>
-
-      <label for="skills2">Skill 2</label>
-      <select name="skills2" [(ngModel)]="user.skills2" id="skills2"   #skills2="ngModel">
-        <option value="Sql">Sql</option>
-        <option value="Web Technology">Web Technology</option>
-        <option value="Cloud">Cloud</option>
-        <option value="Analytics">Analytics</option>
-        <option value="Java">Java</option>
-        <option value="Python">Python</option>
-      </select>
-     
-
-      <label for="skills3">Skill 3</label>
-      <select name="skills3" [(ngModel)]="user.skills3" id="skills3"   #skills3="ngModel">
-        
-        <option value="Sql">Sql</option>
-        <option value="Web Technology">Web Technology</option>
-        <option value="Cloud">Cloud</option>
-        <option value="Analytics">Analytics</option>
-        <option value="Java">Java</option>
-        <option value="Python">Python</option>
-      </select>
       
 
-      <label for="skills4">Skill 4 </label>
-      <select name="skills4" [(ngModel)]="user.skills4" id="skills4"   #skills4="ngModel">
-        
-        <option value="Sql">Sql</option>
-        <option value="Web Technology">Web Technology</option>
-        <option value="Cloud">Cloud</option>
-        <option value="Analytics">Analytics</option>
-        <option value="Java">Java</option>
-        <option value="Python">Python</option>
-      </select>
-      
-      <label for="skills5">Skill 5</label>
-      <select name="skills5" [(ngModel)]="user.skills5" id="skills5"   #skills5="ngModel">
-        
-        <option value="Sql">Sql</option>
-        <option value="Web Technology">Web Technology</option>
-        <option value="Cloud">Cloud</option>
-        <option value="Analytics">Analytics</option>
-        <option value="Java">Java</option>
-        <option value="Python">Python</option>
-      </select>
+      <label for="skills">Skills</label>
 
-      <label for="Month">Month</label>
-      <select name="Month" [(ngModel)]="user.Month" id="Month"   #Month="ngModel">
+      <ng-multiselect-dropdown #multiSelect
+ 
+      [data]="data"        
+      [settings]="settings"
+      [disabled]="false"
+      (onFilterChange)="onFilterChange($event)"
+      (onDropDownClose)="onDropDownClose($event)"
+      (onSelect)="onItemSelect($event)" 
+      (onDeSelect)="onDeSelect($event)"
+      (onSelectAll)="onSelectAll($event)"
+      (onDeSelectAll)="onDeSelectAll($event)">
+		</ng-multiselect-dropdown>
+
+
+
+<!--
+      <label for="skills">Skills</label>
+      <select name="skills" [value]="" required multiple>
+        <option value="" selected>--Select the skill--</option>
+        <option value="Sql">Sql</option>
+        <option value="Web Technology">Web Technology</option>
+        <option value="Cloud">Cloud</option>
+        <option value="Analytics">Analytics</option>
+        <option value="Java">Java</option>
+        <option value="Python">Python</option>
+      </select>
+-->
+      <label for="month">Month Available For Interviews</label>
+      <select name="month" [(ngModel)]="monthVale" id="month"   #month="ngModel" required>
         
         <option value="January">January</option>
         <option value="February">February</option>

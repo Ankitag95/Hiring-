@@ -16,4 +16,8 @@ export class HiringService {
     console.log(user);
     return this.http.post(url, user);
   }
+  public getdata(): Observable<any>{
+    return this.http.get(`${this.tasksUrl}/api/get/all`);
+   
+  }
 }

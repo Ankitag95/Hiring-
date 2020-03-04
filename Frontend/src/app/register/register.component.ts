@@ -1,7 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { Router } from "@angular/router";
 import { NgForm } from "@angular/forms";
 import { HiringService } from '../hiring.service';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { FormGroup, FormControl, Validator, Validators } from "@angular/forms";
+import {CommonModule} from '@angular/common';
+
 //import { LoginService } from "../login.service";
 
 @Component({
@@ -11,7 +15,11 @@ import { HiringService } from '../hiring.service';
 })
 export class RegisterComponent implements OnInit {
   submitted=false;
-
+  public form:NgForm;
+  public data = [];
+  public settings = {};
+  public selectedItems = [];
+  public name = 'Cricketers';
   constructor(public _router:Router,private taskService: HiringService) { }
   
   user={
@@ -31,7 +39,65 @@ export class RegisterComponent implements OnInit {
   taskList = [];
 
   ngOnInit() {
+
+    this.data = [
+      { item_id: 1, item_text: 'SQL' },
+      { item_id: 2, item_text: 'Analytics' },
+      { item_id: 3, item_text: 'Java' },
+      { item_id: 4, item_text: 'Python' },
+      { item_id: 5, item_text: 'Cloud' },
+      { item_id: 6, item_text: 'Web Technology' },
+      { item_id: 7, item_text: 'Cyber Security' }
+    ];
+    // setting and support i18n
+    this.settings = {
+      singleSelection: false,
+      idField: 'item_id',
+      textField: 'item_text',
+      enableCheckAll: true,
+      selectAllText: 'Select All',
+      unSelectAllText: 'Deselect All',
+      allowSearchFilter: true,
+      limitSelection: -1,
+      clearSearchFilter: true,
+      maxHeight: 197,
+      itemsShowLimit: 5,
+      searchPlaceholderText: 'Tìm kiếm',
+      noDataAvailablePlaceholderText: 'Không có dữ liệu',
+      closeDropDownOnSelection: false,
+      showSelectedItemsAtTop: false,
+      defaultOpen: false
+    };
+    
+
+
   }
+
+  public save() {
+    console.log(this.form.value);
+  }
+  public onFilterChange(item: any) {
+    console.log(item);
+  }
+  public onDropDownClose(item: any) {
+    console.log(item);
+  }
+
+  public onItemSelect(item: any) {
+    console.log(item);
+  }
+  public onDeSelect(item: any) {
+    console.log(item);
+  }
+
+  public onSelectAll(items: any) {
+    console.log(items);
+  }
+  public onDeSelectAll(items: any) {
+    console.log(items);
+  }
+  get f() { return this.form.controls; }
+  
   onSubmit() {
     
     
