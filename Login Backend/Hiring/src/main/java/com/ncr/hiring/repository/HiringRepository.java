@@ -1,5 +1,13 @@
 package com.ncr.hiring.repository;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -24,8 +32,12 @@ HiringCrudRepository hiringCrudRepository;
 EntityManager em;
 
 
-public Iterable<HiringDao> getUser() {
-	return hiringCrudRepository.findAll();
+public Iterable<HiringDao> findAllInterviewers() 
+{
+	
+	HibernateQuerries hibernateQuerries = new HibernateQuerries(em);
+	return hibernateQuerries.findAllInterviewers();
+
 	}
 
 
@@ -42,7 +54,7 @@ public Iterable<HiringDao> getUser() {
 		return hiringCrudRepository.findById(id).orElse(null);
 	}
 
-	public HiringDao registerInterviewer(RegisterInterviewer registerInterviewer)
+	public HiringDao registerInterviewer(RegisterInterviewer registerInterviewer) throws NoSuchAlgorithmException
 	{	
 		//HibernateQuerries hibernateQuerries = new HibernateQuerries(em);
 		HiringDao hiringDao= new HiringDao();
@@ -51,27 +63,65 @@ public Iterable<HiringDao> getUser() {
 		hiringDao.setlName(registerInterviewer.getlName());
 		hiringDao.setQlid(registerInterviewer.getQlid());
 		
-		if(registerInterviewer.getSkills() != null)
-			hiringDao.setSkills(registerInterviewer.getSkills());
-		if(registerInterviewer.getSkills2() != null)
-			hiringDao.setSkills2(registerInterviewer.getSkills2());
-		if(registerInterviewer.getSkills3() != null)
-			hiringDao.setSkills3(registerInterviewer.getSkills3());
-		if(registerInterviewer.getSkills4() != null)
-			hiringDao.setSkills4(registerInterviewer.getSkills4());
-		if(registerInterviewer.getSkills5() != null)	
-			hiringDao.setSkills5(registerInterviewer.getSkills5());    
+		if(registerInterviewer.getSkill1() != null)
+			hiringDao.setInterviewer_skill1(registerInterviewer.getSkill1());
+		if(registerInterviewer.getSkill2() != null)
+			hiringDao.setInterviewer_skill2(registerInterviewer.getSkill2());
+		if(registerInterviewer.getSkill3() != null)
+			hiringDao.setInterviewer_skill3(registerInterviewer.getSkill3());
+		if(registerInterviewer.getSkill4() != null)
+			hiringDao.setInterviewer_skill4(registerInterviewer.getSkill4());
+		if(registerInterviewer.getSkill5() != null)	
+			hiringDao.setInterviewer_skill5(registerInterviewer.getSkill5());    
 	
-	hiringDao.setEmail(registerInterviewer.getEmail());
-	hiringDao.setPassword(registerInterviewer.getPassword());
-	hiringDao.setCpassword(registerInterviewer.getCpassword());
+
+		//Encrypting Password/////////////////////////////////////
+		MessageDigest md = MessageDigest.getInstance("MD5");
+		byte[] byteSalt = createSalt();
+		md.reset();
+		md.update(byteSalt);
+		StringBuffer hashCode = new StringBuffer();
+		byte[] hashBytes = md.digest(registerInterviewer.getPassword().getBytes());
+		for (byte b : hashBytes) {
+			hashCode.append(String.format("%02x", b));
+		}
+		
+		
+		hiringDao.setEmail(registerInterviewer.getEmail());
+	//hiringDao.setPassword(registerInterviewer.getPassword());
+	//hiringDao.setCpassword(registerInterviewer.getCpassword());
 	hiringDao.setNumber(registerInterviewer.getNumber());
 	hiringDao.setMonth(registerInterviewer.getMonth());
 	hiringDao.setYear(registerInterviewer.getYear());
-		
-		return hiringCrudRepository.save(hiringDao);
+	hiringDao.setRole();
+	
+	hiringDao.setPassword(hashCode.toString());
+	hiringDao.setCpassword(hashCode.toString());
+	hiringDao.setSalt(byteSalt);
+	
+	
+	
+	return hiringCrudRepository.save(hiringDao);
     
+}
+
+
+
+private byte[] createSalt() {
+
+	byte[] b = new byte[25];
+	
+	SecureRandom random = new SecureRandom();
+	random.nextBytes(b);
+	for(byte bb: b) {
+		System.out.println(bb);
 	}
+	return b;
+}
+
+
+
+
 
 	public void deleteInterviewerById(Long id) {
 		// TODO Auto-generated method stub

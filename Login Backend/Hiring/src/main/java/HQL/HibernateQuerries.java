@@ -10,6 +10,7 @@ import javax.persistence.Query;
 
 import org.springframework.transaction.annotation.Transactional;
 
+
 import com.ncr.hiring.Bean.InterviewerLoginBean;
 //import com.ncr.hiring.Bean.loginBean;
 import com.ncr.hiring.Helper.CommonUtils;
@@ -127,6 +128,13 @@ public InterviewerLoginBean validateUser(InterviewerLoginBean loginBean) {
 ////		return false;
 ////	System.out.println(b);
 //}
+
+public Iterable<HiringDao> findAllInterviewers()
+{
+	Iterable<HiringDao> resultSet= (Iterable<HiringDao>) em.createQuery(" from HiringDao where role= 'Interviewer'").getResultList();
+	return resultSet;
+}
+
 
 
 }

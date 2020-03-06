@@ -1,5 +1,7 @@
 package com.ncr.hiring.service;
 
+import java.security.NoSuchAlgorithmException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +17,7 @@ public class HiringService {
 	HiringRepository hiringRepository;
 	
 	public Iterable<HiringDao> getUser(){
-		return hiringRepository.getUser();
+		return hiringRepository.findAllInterviewers();
 		
 	}
 	
@@ -49,7 +51,7 @@ public class HiringService {
 //		//return "sucess";
 //	}
 	
-	public HiringDao registerInterviewer(RegisterInterviewer registerInterviewer)
+	public HiringDao registerInterviewer(RegisterInterviewer registerInterviewer) throws NoSuchAlgorithmException
 	{
 		return hiringRepository.registerInterviewer(registerInterviewer);
 		//return "sucess";

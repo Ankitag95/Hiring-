@@ -1,5 +1,7 @@
 package com.ncr.hiring.controller;
 
+import java.security.NoSuchAlgorithmException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -78,7 +80,7 @@ public class HiringController {
 //		//return "success";
 //	}
 	
-	public HiringDao registerInterviewer(@RequestBody RegisterInterviewer registerInterviewer)
+	public HiringDao registerInterviewer(@RequestBody RegisterInterviewer registerInterviewer) throws NoSuchAlgorithmException
 	{
 		return hiringService.registerInterviewer(registerInterviewer);
 		//return "success";
