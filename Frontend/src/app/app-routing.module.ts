@@ -10,9 +10,10 @@ import { EpfFormComponent } from './epf-form/epf-form.component';
 import { EpsNominationComponent } from './eps-nomination/eps-nomination.component';
 import { RegisterComponent } from './register/register.component';
 import { PageComponent } from './page/page.component'
+import {InterviewerRegisterComponent } from './interviewer-register/interviewer-register.component'
 
 const routes: Routes = [
-  {path:"register",component:RegisterComponent},
+  {path:"interviewer-register",component:InterviewerRegisterComponent},
   {path:"page",component:PageComponent},
   {path:'',redirectTo:'/page',pathMatch:'full'}
   //{path:'pf-form1',component:PfForm1Component},

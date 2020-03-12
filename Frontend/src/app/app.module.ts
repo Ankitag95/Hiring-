@@ -15,6 +15,7 @@ import{HttpClientModule} from '@angular/common/http';
 import { PageComponent } from './page/page.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import {CommonModule} from '@angular/common';
+import { InterviewerRegisterComponent } from './interviewer-register/interviewer-register.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {CommonModule} from '@angular/common';
     // EpsNominationComponent,
     // FirstComponent,
     RegisterComponent,
-    PageComponent
+    PageComponent,
+    InterviewerRegisterComponent
   ],
   imports: [
     BrowserModule,
