@@ -2,18 +2,57 @@
     <br><br><br><br><br><br> 
     <h1>Interviewers Available</h1>
     
-    <table >
+    <table class='table' >
  
-        <tr>
+        <!-- <tr>
           <th>Fisrt Name</th>
           <th>Last Name</th>
           <th>Qlid</th>
-          <th>Skill 1</th>
+          <th>Skills</th>
           <th>Email</th>
           <th>Contact Number</th>
           <th>Month Available</th>
           <th>Year</th>
           </tr>
+
+          <tr>
+            <td> Anish</td>
+            <td>Sharma </td>
+            <td>  AS185836 </td>
+            <td>  Sql </td>
+            <td>   Anish.Sharma@ncr</td>
+            <td>  9650607971 </td> 
+            <td>  September </td>
+            <td>2020 </td>
+
+          </tr>
+
+          <tr>
+            <td> Ankita</td>
+            <td>Gupta </td>
+            <td>  AG185836 </td>
+            <td>  Web Technology </td>
+            <td>   Ankita.Gupta@ncr</td>
+            <td>  9865743908 </td> 
+            <td>  May </td>
+            <td>2020 </td>
+
+          </tr>
+
+
+          <tr>
+            <td> Bhuvan</td>
+            <td>Dutt </td>
+            <td>  BD185836 </td>
+            <td>  Java </td>
+            <td>   Bhuvan.Dutt@ncr</td>
+            <td>  97489376578 </td> 
+            <td>  October </td>
+            <td>2020 </td>
+
+          </tr>
+
+          <br><br><br><br><br><br><br><br><br><br><br><br><br> -->
         
     
   <tr *ngFor="let user of users;let i = index"> 
@@ -26,7 +65,7 @@
     <td>  {{user.number}} </td> 
     <td>  {{user.month}} </td>
     <td>{{user.year}} </td>
-    <button type="button" class="button-rem" (click)="remform3(i)"><b>remove</b></button>
+    <button type="button" class="button-rem" (click)="remform3(user)"><b>remove</b></button>
     </tr>
  
  

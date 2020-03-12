@@ -62,7 +62,7 @@ export class RegisterComponent implements OnInit {
       clearSearchFilter: true,
       maxHeight: 197,
       itemsShowLimit: 5,
-      searchPlaceholderText: 'Tìm kiếm',
+      searchPlaceholderText: 'Search',
       noDataAvailablePlaceholderText: 'Không có dữ liệu',
       closeDropDownOnSelection: false,
       showSelectedItemsAtTop: false,

@@ -14,22 +14,6 @@
       <input type="text" name="qlid" [(ngModel)]="user.qlid" #qlid="ngModel" placeholder="Enter Quick Look ID" required>
       <div class="error-msg" *ngIf="qlid.touched && !qlid.valid">*Field is Required</div>
   
-      
-
-      <label for="skills">Skills</label>
-
-      <ng-multiselect-dropdown #multiSelect
- 
-      [data]="data"        
-      [settings]="settings"
-      [disabled]="false"
-      (onFilterChange)="onFilterChange($event)"
-      (onDropDownClose)="onDropDownClose($event)"
-      (onSelect)="onItemSelect($event)" 
-      (onDeSelect)="onDeSelect($event)"
-      (onSelectAll)="onSelectAll($event)"
-      (onDeSelectAll)="onDeSelectAll($event)">
-		</ng-multiselect-dropdown>
 
 
 
@@ -46,9 +30,9 @@
       </select>
 -->
       <label for="month">Month Available For Interviews</label>
-      <select name="month" [(ngModel)]="monthVale" id="month"   #month="ngModel" required>
+      <select name="month" [value]=""  id="month" >
         
-        <option value="January">January</option>
+        <option value="" selected>January</option>
         <option value="February">February</option>
         <option value="March">March</option>
         <option value="April">April</option>
@@ -61,6 +45,9 @@
         <option value="November">November</option>
         <option value="December">December</option>
       </select>
+       
+      <label for="year">Year</label>
+      <input class="year" type="text" value="2020" disabled>
 
 
       <label for="phonenumber">Contact Number</label>
@@ -72,6 +59,22 @@
       <div class="error-msg" *ngIf="email.touched && !email.valid">*Field is Required</div>
   
   
+      <label for="skills">Skills</label>
+
+      <ng-multiselect-dropdown #multiSelect
+ 
+      [data]="data"        
+      [settings]="settings"
+      [disabled]="false"
+      (onFilterChange)="onFilterChange($event)"
+      (onDropDownClose)="onDropDownClose($event)"
+      (onSelect)="onItemSelect($event)" 
+      (onDeSelect)="onDeSelect($event)"
+      (onSelectAll)="onSelectAll($event)"
+      (onDeSelectAll)="onDeSelectAll($event)">
+		</ng-multiselect-dropdown>
+      <br>
+      
       <label for="password">Password</label>
       <input type="password" name="password" [(ngModel)]="user.password" pattern="(?=.*\d).{8,20}" title="Password must be between 8 and 20 digits long and include at least one numeric digit."  #password="ngModel" placeholder="Enter Password" required>
       <div class="error-msg" *ngIf="password.touched && !password.valid">*Password must be between 8 and 20 digits long and include at least one numeric digit</div>
@@ -81,7 +84,8 @@
       <input type="password" name="cpassword" [(ngModel)]="user.cpassword" pattern="(?=.*\d).{8,20}" title="Password must be between 8 and 20 digits long and include at least one numeric digit."  #cpassword="ngModel" placeholder="Confirm Password" required>
       <div class="error-msg" *ngIf="cpassword.touched && !cpassword.valid">*Password must be between 8 and 20 digits long and include at least one numeric digit and passwords should match </div>
   
-      <input type="submit" value="Submit">
+      <input type="submit" value="Submit" >
+      
     </form>
   </div>
   

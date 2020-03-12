@@ -9,9 +9,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { EpfFormComponent } from './epf-form/epf-form.component';
 import { EpsNominationComponent } from './eps-nomination/eps-nomination.component';
 import { RegisterComponent } from './register/register.component';
+import { PageComponent } from './page/page.component'
 
 const routes: Routes = [
   {path:"register",component:RegisterComponent},
+  {path:"page",component:PageComponent},
+  {path:'',redirectTo:'/page',pathMatch:'full'}
   //{path:'pf-form1',component:PfForm1Component},
   //{path:'pf-form2',component:PfForm2Component},
   //{path:'epf-form',component:EpfFormComponent},

@@ -13,9 +13,10 @@ h1{
 
 
 td{
-    border-color: #54b948;
+  border: 1px solid #ccc;
+   
     border-style: solid;
-    width: 13%;
+    width: 10%;
 
 }
 

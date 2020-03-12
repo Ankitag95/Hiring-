@@ -26,7 +26,8 @@ import {CommonModule} from '@angular/common';
     // EpfFormComponent,
     // EpsNominationComponent,
     // FirstComponent,
-    RegisterComponent
+    RegisterComponent,
+    PageComponent
   ],
   imports: [
     BrowserModule,

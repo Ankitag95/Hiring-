@@ -28,10 +28,12 @@ export class PageComponent implements OnInit {
       console.log(this.users)});
   }
 
-  remform3(index : any){
+  remform3(user : any){
 
-   
-    this.users.pop();
+    // this.users.pop();
+const index = this.users.indexOf(user);
+this.users.splice(index, 1)
+
   }
 
 }
