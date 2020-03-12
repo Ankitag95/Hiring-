@@ -1,20 +1,22 @@
 package com.ncr.hiring.ValueObject;
 
-public class FormVo {
+public class RegisterInterviewer {
 	
 	private long id;
 	private String qlid;
 	private String fName;
 	private String lName;
-	private String skills;
-	private String skills2;
-	private String skills3;
-	private String skills4;
-	private String skills5;
+	private String skill1;
+	private String skill2;
+	private String skill3;
+	private String skill4;
+	private String skill5;
 	private String email;
 	private String password;
 	private String cpassword;//Confirm Password
 	private String number;//Contact Number
+	private String month;
+	private String year;
 	
 	public long getId() {
 		return id;
@@ -64,35 +66,46 @@ public class FormVo {
 	public void setQlid(String qlid) {
 		this.qlid = qlid;
 	}
-	public String getSkills() {
-		return skills;
+		public String getMonth() {
+		return month;
 	}
-	public void setSkills(String skills) {
-		this.skills = skills;
+	public void setMonth(String month) {
+		this.month = month;
 	}
-
-	public String getSkills2() {
-		return skills2;
+	public String getSkill1() {
+		return skill1;
 	}
-	public void setSkills2(String skills2) {
-		this.skills2 = skills2;
+	public void setSkill1(String skill1) {
+		this.skill1 = skill1;
 	}
-	public String getSkills3() {
-		return skills3;
+	public String getSkill2() {
+		return skill2;
 	}
-	public void setSkills3(String skills3) {
-		this.skills3 = skills3;
+	public void setSkill2(String skill2) {
+		this.skill2 = skill2;
 	}
-	public String getSkills4() {
-		return skills4;
+	public String getSkill3() {
+		return skill3;
 	}
-	public void setSkills4(String skills4) {
-		this.skills4 = skills4;
+	public void setSkill3(String skill3) {
+		this.skill3 = skill3;
 	}
-	public String getSkills5() {
-		return skills5;
+	public String getSkill4() {
+		return skill4;
 	}
-	public void setSkills5(String skills5) {
-		this.skills5 = skills5;
+	public void setSkill4(String skill4) {
+		this.skill4 = skill4;
+	}
+	public String getSkill5() {
+		return skill5;
+	}
+	public void setSkill5(String skill5) {
+		this.skill5 = skill5;
+	}
+	public String getYear() {
+		return year;
+	}
+	public void setYear(String year) {
+		this.year = year;
 	}
 }

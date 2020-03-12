@@ -1,12 +1,6 @@
 package com.ncr.hiring.Bean;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Column;
 
-public class LoginBean {
+public class InterviewerLoginBean {
 	private String email;
 	private String fName;
 	private String lName;
@@ -65,9 +59,9 @@ public class LoginBean {
 //		this.last_name = last_name;
 //	}
 	public String getRole() {
-		return "interviwer";
-	}
-	public void setRole() {
-		this.role = "interviwer";
+		return this.role;
+}
+	public void setRole(String role) {
+		this.role = role;
 	}
 }

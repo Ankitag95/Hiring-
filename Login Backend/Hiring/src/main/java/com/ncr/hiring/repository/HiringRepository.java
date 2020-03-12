@@ -1,5 +1,13 @@
 package com.ncr.hiring.repository;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -7,8 +15,8 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.ncr.hiring.Bean.LoginBean;
-import com.ncr.hiring.ValueObject.FormVo;
+import com.ncr.hiring.Bean.InterviewerLoginBean;
+import com.ncr.hiring.ValueObject.RegisterInterviewer;
 import com.ncr.hiring.model.HiringDao;
 
 import HQL.HibernateQuerries;
@@ -24,106 +32,100 @@ HiringCrudRepository hiringCrudRepository;
 EntityManager em;
 
 
-public Iterable<HiringDao> getUser() {
-	return hiringCrudRepository.findAll();
+public Iterable<HiringDao> findAllInterviewers() 
+{
+	
+	HibernateQuerries hibernateQuerries = new HibernateQuerries(em);
+	return hibernateQuerries.findAllInterviewers();
+
 	}
 
-//BOOLEAN TRY
-//public boolean validateUser(String email,String password) {
-//	HibernateQuerries hibernateQuerries = new HibernateQuerries(em);
-//	return hibernateQuerries.validateUser(email, password);
-//}
-//----------------------------------------------------------------------------------
-//VOID TRY
-//public void validateUser(String email,String password) {
-//	HibernateQuerries hibernateQuerries = new HibernateQuerries(em);
-//	 hibernateQuerries.validateUser(email, password);
-//}
-//---------------------------------------------------------------------------------
-//LOGINBEAN TRY
-//public LoginBean validateUser(String email,String password) {
-//HibernateQuerries hibernateQuerries = new HibernateQuerries(em);
-//return hibernateQuerries.validateUser(email, password);
-//}
-public LoginBean validateUser(LoginBean loginBean) {
-HibernateQuerries hibernateQuerries = new HibernateQuerries(em);
-return hibernateQuerries.validateUser(loginBean);
-}
-//public HiringDao dashBoard(String email) {
-//	HibernateQuerries hibernateQuerries = new HibernateQuerries(em);
-//	
-//	return hibernateQuerries.dashBoard(email);
-//}
 
-//public boolean addFormData(FormVo formVo)
-//{	
-//	HibernateQuerries hibernateQuerries = new HibernateQuerries(em);
-//	HiringDao hiringDao= new HiringDao();
-//	hiringDao.setID(formVo.getId());
-//	hiringDao.setfName(formVo.getfName());
-//	hiringDao.setlName(formVo.getlName());
-//	hiringDao.setDob(formVo.getDob());
-//	hiringDao.setGender(formVo.getGender());
-//	hiringDao.setEmail(formVo.getEmail());
-//	hiringDao.setPassword(formVo.getPassword());
-//	hiringDao.setNumber(formVo.getNumber());
-//    return hibernateQuerries.addFormData(formVo);
-//	
-//}
+	public InterviewerLoginBean validateUser(InterviewerLoginBean interviewerLoginBean) 
+	{
+		HibernateQuerries hibernateQuerries = new HibernateQuerries(em);
+		System.out.println(hibernateQuerries.validateUser(interviewerLoginBean));
+		return hibernateQuerries.validateUser(interviewerLoginBean);
+	
+	}
 
-public HiringDao addFormData(FormVo formVo)
-{	
-	HibernateQuerries hibernateQuerries = new HibernateQuerries(em);
-	HiringDao hiringDao= new HiringDao();
-	hiringDao.setID(formVo.getId());
-	hiringDao.setfName(formVo.getfName());
-	hiringDao.setlName(formVo.getlName());
-	hiringDao.setQlid(formVo.getQlid());
-    hiringDao.setSkills(formVo.getSkills());
-    hiringDao.setSkills2(formVo.getSkills2());
-    hiringDao.setSkills3(formVo.getSkills3());
-    hiringDao.setSkills4(formVo.getSkills4());
-    hiringDao.setSkills5(formVo.getSkills5());    
-	hiringDao.setEmail(formVo.getEmail());
-	hiringDao.setPassword(formVo.getPassword());
-	hiringDao.setCpassword(formVo.getCpassword());
-	hiringDao.setNumber(formVo.getNumber());
+	public HiringDao getInterviewerById(Long id)
+	{
+		return hiringCrudRepository.findById(id).orElse(null);
+	}
+
+	public HiringDao registerInterviewer(RegisterInterviewer registerInterviewer) throws NoSuchAlgorithmException
+	{	
+		//HibernateQuerries hibernateQuerries = new HibernateQuerries(em);
+		HiringDao hiringDao= new HiringDao();
+		hiringDao.setID(registerInterviewer.getId());
+		hiringDao.setfName(registerInterviewer.getfName());
+		hiringDao.setlName(registerInterviewer.getlName());
+		hiringDao.setQlid(registerInterviewer.getQlid());
 		
-    return hiringCrudRepository.save(hiringDao);
+		if(registerInterviewer.getSkill1() != null)
+			hiringDao.setInterviewer_skill1(registerInterviewer.getSkill1());
+		if(registerInterviewer.getSkill2() != null)
+			hiringDao.setInterviewer_skill2(registerInterviewer.getSkill2());
+		if(registerInterviewer.getSkill3() != null)
+			hiringDao.setInterviewer_skill3(registerInterviewer.getSkill3());
+		if(registerInterviewer.getSkill4() != null)
+			hiringDao.setInterviewer_skill4(registerInterviewer.getSkill4());
+		if(registerInterviewer.getSkill5() != null)	
+			hiringDao.setInterviewer_skill5(registerInterviewer.getSkill5());    
+	
+
+		//Encrypting Password/////////////////////////////////////
+		MessageDigest md = MessageDigest.getInstance("MD5");
+		byte[] byteSalt = createSalt();
+		md.reset();
+		md.update(byteSalt);
+		StringBuffer hashCode = new StringBuffer();
+		byte[] hashBytes = md.digest(registerInterviewer.getPassword().getBytes());
+		for (byte b : hashBytes) {
+			hashCode.append(String.format("%02x", b));
+		}
+		
+		
+		hiringDao.setEmail(registerInterviewer.getEmail());
+	//hiringDao.setPassword(registerInterviewer.getPassword());
+	//hiringDao.setCpassword(registerInterviewer.getCpassword());
+	hiringDao.setNumber(registerInterviewer.getNumber());
+	hiringDao.setMonth(registerInterviewer.getMonth());
+	hiringDao.setYear(registerInterviewer.getYear());
+	hiringDao.setRole();
+	
+	hiringDao.setPassword(hashCode.toString());
+	hiringDao.setCpassword(hashCode.toString());
+	hiringDao.setSalt(byteSalt);
+	
+	
+	
+	return hiringCrudRepository.save(hiringDao);
     
 }
 
-//public Iterable<HiringDao> getData() {
-//	HibernateQuerries hibernateQuerries=new HibernateQuerries(em);
-//	return hibernateQuerries.getData();
-//	}
 
 
-//   public void setData( String task) 
-//   {
-//	  ToDoList obj=new ToDoList();
-//	  obj.setTask(task);
-//	  toDoCrudRepository.save(obj);
-//	
-//   }
-   
-//   public void deleteData(long id) {
-//		 toDoCrudRepository.deleteById(id);
-//		
-//	}
-   
-   
-//   public void updateData(String task) {
-//		// TODO Auto-generated method stub
-//		ToDoList obj1=new ToDoList();
-//		obj1.setTask(task);
-//		toDoCrudRepository.save(obj1);
-//	}
-   
-//   public void deleteAllData() {
-//		// TODO Auto-generated method stub
-//		toDoCrudRepository.deleteAll();
-//	}
+private byte[] createSalt() {
+
+	byte[] b = new byte[25];
+	
+	SecureRandom random = new SecureRandom();
+	random.nextBytes(b);
+	for(byte bb: b) {
+		System.out.println(bb);
+	}
+	return b;
+}
 
 
+
+
+
+	public void deleteInterviewerById(Long id) {
+		// TODO Auto-generated method stub
+		 hiringCrudRepository.deleteById(id);
+	}
+	
 }
